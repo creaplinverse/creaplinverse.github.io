@@ -507,6 +507,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .ngobrol__teks p { margin-top: 18px; font-size: 18px; color: var(--redup); max-width: 28em; }
 .ngobrol__pita { position: relative; margin-top: 70px; height: clamp(320px, 42vw, 520px); border-radius: var(--r-besar) var(--r-besar) 0 0; overflow: hidden; display: grid; place-items: center;
   background: repeating-linear-gradient(-60deg, var(--hijau) 0 90px, var(--mint) 90px 190px); }
+.ngobrol__pita::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: calc(100% + 240px); background: repeating-linear-gradient(-60deg, var(--hijau) 0 90px, var(--mint) 90px 190px); }
+.ngobrol__pita .tombol-pixel { position: relative; z-index: 1; }
 .ngobrol__komen { position: absolute; left: 4%; top: -44px; z-index: 2; width: min(300px, 80vw); background: #fff; border-radius: 12px; padding: 14px 16px; box-shadow: 0 12px 30px rgba(31,59,51,.18); font-size: 14px; }
 .ngobrol__komen small { color: var(--redup); }
 .ngobrol__komen div { display: flex; gap: 10px; margin-top: 8px; }
@@ -518,6 +520,72 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .tombol-pixel i { width: 30px; height: 30px; background: var(--mint); border-radius: 4px; display: grid; place-items: center; color: var(--tinta); font: 700 18px/1 "Inter", sans-serif; }
 @media (max-width: 860px) { .ngobrol__atas { grid-template-columns: 1fr; text-align: center; } .ngobrol__teks p { margin-inline: auto; } .ngobrol__komen { left: 50%; transform: translateX(-50%); } }
 
+
+/* ===== Gerak tambahan: maskot celingak-celinguk dan objek kecil yang hidup ===== */
+.maskot__badan { position: relative; transform-origin: 50% 85%; }
+.maskot__bayang { display: block; width: 62%; height: 18px; margin: 6px auto 0; border-radius: 50%; background: rgba(31, 59, 51, .14); }
+@media (prefers-reduced-motion: no-preference) {
+  .maskot__badan { animation: celingak 7s ease-in-out infinite; }
+  .maskot__bayang { animation: bayang 7s ease-in-out infinite; }
+  .maskot:hover .maskot__badan { animation: lompat .6s cubic-bezier(.34, 1.56, .64, 1) infinite alternate; }
+  @keyframes celingak {
+    0%, 100% { transform: translate(0, 0) rotate(0); }
+    10% { transform: translate(-10px, -4px) rotate(-7deg); }
+    22% { transform: translate(-10px, -4px) rotate(-7deg); }
+    32% { transform: translate(0, -10px) rotate(0); }
+    44% { transform: translate(12px, -4px) rotate(8deg); }
+    56% { transform: translate(12px, -4px) rotate(8deg); }
+    66% { transform: translate(0, 0) rotate(0) scale(1.02, .98); }
+    72% { transform: translate(0, -14px) rotate(-2deg) scale(.98, 1.03); }
+    80% { transform: translate(0, 0) rotate(0) scale(1.02, .98); }
+    86% { transform: translate(0, 0) rotate(0); }
+  }
+  @keyframes bayang { 0%, 100%, 66%, 80% { transform: scaleX(1); opacity: 1; } 32%, 72% { transform: scaleX(.85); opacity: .7; } 10%, 44% { transform: translateX(var(--g, 0)) scaleX(.95); } }
+  @keyframes lompat { from { transform: translateY(0) rotate(-3deg); } to { transform: translateY(-16px) rotate(3deg); } }
+
+  /* objek kecil */
+  .h2-catatan--a { animation: goyang-a 5.5s ease-in-out infinite; }
+  .h2-catatan--b { animation: goyang-b 6.5s ease-in-out infinite; }
+  @keyframes goyang-a { 0%, 100% { rotate: 0deg; translate: 0 0; } 50% { rotate: -3deg; translate: -4px -5px; } }
+  @keyframes goyang-b { 0%, 100% { rotate: 0deg; translate: 0 0; } 50% { rotate: 3deg; translate: 5px -4px; } }
+  .h2-pil--kota { animation: pil-a 6s ease-in-out infinite; }
+  .h2-pil--peran { animation: pil-b 7s ease-in-out -1.5s infinite; }
+  @keyframes pil-a { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: -8px 8px; rotate: -4deg; } }
+  @keyframes pil-b { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 8px -8px; rotate: 4deg; } }
+  .h2-pil svg { animation: tunjuk 1.6s ease-in-out infinite; }
+  @keyframes tunjuk { 50% { translate: 3px 3px; } }
+  .h2-nama-label { animation: ayun 4s ease-in-out infinite; }
+  @keyframes ayun { 0%, 100% { rotate: -2deg; } 50% { rotate: 2deg; } }
+  .h2-motto .ikon:first-of-type { animation: denyut-ikon 2.4s ease-in-out infinite; }
+  .h2-motto .ikon:last-of-type, .tentang__teks .ikon:first-of-type { animation: putar 8s linear infinite; }
+  .tentang__teks .ikon:last-of-type { animation: denyut-ikon 2s ease-in-out infinite; }
+  .tentang__teks img { animation: angguk 3s ease-in-out infinite; }
+  @keyframes putar { to { rotate: 360deg; } }
+  @keyframes denyut-ikon { 50% { scale: 1.25; } }
+  @keyframes angguk { 0%, 100% { rotate: 0deg; } 25% { rotate: -10deg; } 75% { rotate: 10deg; } }
+  .tentang__sudut, .karya2__kepala .tangan { animation: ayun 3.5s ease-in-out infinite; }
+  .polaroid--kiri { animation: polaroid-a 6s ease-in-out infinite; }
+  .polaroid--kanan { animation: polaroid-b 7s ease-in-out infinite; }
+  @keyframes polaroid-a { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 0 -10px; rotate: 3deg; } }
+  @keyframes polaroid-b { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 0 -12px; rotate: -3deg; } }
+  .chip i { animation: lonjak 2.8s ease-in-out infinite; }
+  .chip i:nth-of-type(2) { animation-delay: -.7s; } .chip i:nth-of-type(3) { animation-delay: -1.4s; } .chip i:nth-of-type(4) { animation-delay: -2.1s; }
+  .chip i svg { animation: putar 6s linear infinite; }
+  @keyframes lonjak { 0%, 70%, 100% { translate: 0 0; } 80% { translate: 0 -8px; } 90% { translate: 0 2px; } }
+  .chip span { transition: transform .3s cubic-bezier(.34, 1.56, .64, 1); }
+  .chip span:hover { transform: rotate(-3deg) scale(1.05); }
+  .karya2__kepala p { animation: goyang-a 6s ease-in-out infinite; }
+  .map__tab::before { animation: denyut-ikon 2s ease-in-out infinite; }
+  .ngobrol__komen { animation: polaroid-a 5s ease-in-out infinite; }
+  .tombol-pixel i { animation: dorong 1.2s ease-in-out infinite; }
+  @keyframes dorong { 50% { translate: 4px 0; } }
+  .h2-aksi .btn i { animation: dorong 1.2s ease-in-out infinite; }
+  .ngobrol__pita::before { animation: pita 6s linear infinite; }
+  @keyframes pita { to { transform: translateX(-219.4px); } }
+  .tempel div:nth-child(odd) { animation: goyang-a 6s ease-in-out infinite; }
+  .tempel div:nth-child(even) { animation: goyang-b 7s ease-in-out infinite; }
+  .gelembung img { animation: angguk 4s ease-in-out infinite; }
+}
 @media (prefers-reduced-motion: reduce) { .gelembung, .h2-status::before { animation: none; } .sapa { display: none; } }
 
 </style>
@@ -705,9 +773,12 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     <div class="wrap">
       <div class="ngobrol__atas">
         <div class="maskot" id="maskot" data-muncul>
-          <img src="assets/maskot.png" alt="Maskot Creaplin: wajah berkacamata dengan rambut mint" width="900" height="862">
-          <span class="maskot__pupil" style="left:33.66%;top:63.43%"></span>
-          <span class="maskot__pupil" style="left:61.87%;top:63.58%"></span>
+          <div class="maskot__badan">
+            <img src="assets/maskot.png" alt="Maskot Creaplin: wajah berkacamata dengan rambut mint" width="900" height="862">
+            <span class="maskot__pupil" style="left:33.66%;top:63.43%"></span>
+            <span class="maskot__pupil" style="left:61.87%;top:63.58%"></span>
+          </div>
+          <span class="maskot__bayang" aria-hidden="true"></span>
           <span class="maskot__pilih" aria-hidden="true"></span>
         </div>
         <div class="ngobrol__teks" data-muncul>

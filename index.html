@@ -131,6 +131,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .daftar h3 { font-size: 28px; }
 .daftar .harga { font-family: "Cal Sans"; font-size: 26px; color: var(--mint); white-space: nowrap; }
 .daftar p { grid-column: 1 / -1; color: #CFD8CC; max-width: 36em; }
+.daftar .poin { grid-column: 1 / -1; list-style: none; display: grid; gap: 8px; margin-top: 6px; max-width: 38em; }
+.daftar .poin li { display: block; position: relative; padding: 0 0 0 22px; border: 0; color: #CFD8CC; }
+.daftar .poin li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
+.daftar .poin b { color: var(--krem); font-weight: 600; white-space: nowrap; }
 .promo { display: inline-block; margin-top: 4px; color: var(--mint); font-size: 17px; font-weight: 600; font-style: italic; }
 .layanan__catatan { margin-top: 28px; font-size: 16px; }
 @media (max-width: 860px) { .layanan__isi { grid-template-columns: 1fr; gap: 0; } .daftar h3 { font-size: 24px; } .daftar .harga { font-size: 22px; } }
@@ -677,25 +681,45 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         <ul class="daftar">
           <li data-muncul="kiri">
             <h3>Video penjelas animasi</h3><span class="harga">mulai Rp 250 rb</span>
-            <p>Video 30 sampai 60 detik untuk Reels dan TikTok: naskah, narasi suara, animasi, dan subtitle. Untuk produk, layanan, atau program yang perlu dijelaskan: klinik, kursus, properti, keuangan, sekolah, dan lainnya.</p>
+            <ul class="poin">
+              <li>Durasi 30 sampai 60 detik, format Reels dan TikTok</li>
+              <li>Sudah termasuk naskah, narasi suara, animasi, dan subtitle</li>
+              <li>Cocok untuk produk, layanan, atau program: klinik, kursus, properti, sekolah, dan lainnya</li>
+            </ul>
           </li>
           <li data-muncul="kiri">
             <h3>Paket 4 video sebulan</h3><span class="harga">Rp 800 rb</span>
-            <p>Satu video setiap minggu dengan satu gaya yang konsisten untuk akunmu.</p>
-            <p><span class="promo">Harga ramah UMKM, sekitar Rp 200 rb per video</span></p>
+            <ul class="poin">
+              <li>Satu video setiap minggu</li>
+              <li>Satu gaya visual yang konsisten untuk akunmu</li>
+              <li>Harga ramah UMKM, sekitar <b>Rp 200 rb</b> per video</li>
+            </ul>
           </li>
           <li data-muncul="kiri">
             <h3>Web profil usaha</h3><span class="harga">mulai Rp 1,5 jt</span>
-            <p>Web pengenalan untuk usahamu (bukan toko online): profil, menu atau layanan, galeri, tombol WhatsApp, dan peta. 3 sampai 5 halaman mulai Rp 2,5 jt. Hosting gratis, domain .com Rp 250 rb per tahun (kami yang urus).</p>
-            <p>Mau ubah menu dan harga sendiri? Tambah Rp 250 rb, cukup lewat Google Sheet. Atau biar kami yang ubah: Rp 50 rb per perubahan, atau Rp 100 rb per bulan untuk perubahan kecil sepuasnya.</p>
+            <ul class="poin">
+              <li>Web 1 halaman: profil, menu atau layanan, galeri, tombol WhatsApp, dan peta</li>
+              <li>Web 3 sampai 5 halaman: mulai <b>Rp 2,5 jt</b></li>
+              <li>Hosting gratis</li>
+              <li>Domain .com: <b>Rp 250 rb</b> per tahun, kami yang urus</li>
+              <li>Ubah menu dan harga sendiri lewat Google Sheet: tambah <b>Rp 250 rb</b></li>
+              <li>Diubah oleh kami: <b>Rp 50 rb</b> per perubahan, atau <b>Rp 100 rb</b> per bulan sepuasnya</li>
+              <li>Untuk web pengenalan usaha, bukan toko online</li>
+            </ul>
           </li>
           <li data-muncul="kiri">
             <h3>Desain feed dan carousel</h3><span class="harga">mulai Rp 75 rb</span>
-            <p>Satuan, atau paket 12 desain sebulan Rp 750 rb lengkap dengan caption.</p>
+            <ul class="poin">
+              <li>Satuan, untuk feed atau story</li>
+              <li>Paket 12 desain sebulan: <b>Rp 750 rb</b>, lengkap dengan caption</li>
+            </ul>
           </li>
           <li data-muncul="kiri">
             <h3>Logo dan identitas</h3><span class="harga">mulai Rp 500 rb</span>
-            <p>Logo, warna, dan font, dengan tiga contoh penerapan.</p>
+            <ul class="poin">
+              <li>Logo, warna, dan font</li>
+              <li>Tiga contoh penerapan</li>
+            </ul>
           </li>
         </ul>
         <p class="layanan__catatan muted">Pembayaran: DP 50% di awal, pelunasan sebelum file dikirim. Harga dapat berubah sewaktu-waktu.</p>

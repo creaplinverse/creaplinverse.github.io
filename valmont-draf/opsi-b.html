@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Valmont Hotel Bukittinggi · Opsi B</title>
+<meta property="og:image" content="https://creaplinverse.github.io/valmont-draf/og.jpg">
+<meta property="og:url" content="https://creaplinverse.github.io/valmont-draf/opsi-b.html">
+<meta name="description" content="The Valmont Hotel, Jl. Sudirman No. 15, Kota Bukittinggi. Kamar bergaya klasik dengan sarapan, Wi-Fi gratis, dan Smart TV. Pesan langsung lewat WhatsApp.">
+<meta name="theme-color" content="#F3EFEB">
+<link rel="icon" href="assets/emblem-marun.png">
+<style>
+@font-face { font-family: "Jost"; src: url(assets/fonts/jost.woff2) format("woff2"); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: "Marcellus"; src: url(assets/fonts/marcellus.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "Cormorant"; src: url(assets/fonts/cormorant-italic.woff2) format("woff2"); font-weight: 300 700; font-style: italic; font-display: swap; }
+
+/* Opsi B: terang & lapang (gaya Stayscape), aksen marun Valmont. Kartu putih di atas abu hangat, satu bagian gelap untuk harga & kaki. */
+:root {
+  --latar: #F3EFEB;
+  --kartu: #FFFFFF;
+  --tinta: #1D1617;
+  --redup: #9A8F8C;
+  --garis: #E6DFDA;
+  --marun: #7E2A32;
+  --marun-tua: #4E151B;
+  --gelap: #171213;
+  --gelap-2: #221B1C;
+  --krem: #F3EADF;
+  --sampanye: #D8BF9C;
+  --halus: cubic-bezier(.2, .7, .1, 1);
+  --lebar: 1200px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { font-family: "Jost", system-ui, sans-serif; font-size: 16px; line-height: 1.6; color: var(--tinta); background: var(--latar); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+.wrap { width: min(var(--lebar), 100% - 40px); margin-inline: auto; }
+h1, h2, h3 { font-weight: 500; letter-spacing: -.025em; line-height: 1.08; text-wrap: balance; }
+h1 .redup, h2 .redup { color: var(--redup); }
+.serif-i { font-family: "Cormorant", Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: 0; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--redup); }
+.eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--marun); }
+.tengah { text-align: center; }
+
+/* Tombol */
+.pil { display: inline-flex; align-items: center; gap: 10px; padding: 6px 18px 6px 6px; border-radius: 999px; background: var(--tinta); color: #fff; font-size: 14px; font-weight: 500; transition: transform .3s var(--halus), background .3s; }
+.pil i { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #fff; color: var(--tinta); transition: transform .35s var(--halus); }
+.pil i svg { width: 15px; height: 15px; }
+.pil:hover { transform: translateY(-2px); background: var(--marun); }
+.pil:hover i { transform: rotate(-45deg); }
+.pil--terang { background: #fff; color: var(--tinta); }
+.pil--terang i { background: var(--tinta); color: #fff; }
+.pil--terang:hover { background: var(--krem); }
+
+/* Menu */
+/* Menu tanpa kotak putih; saat digulir muncul pita tipis selebar layar agar tetap terbaca */
+.menu { position: fixed; inset: 0 0 auto; z-index: 40; padding: 14px 0; transition: background .4s, backdrop-filter .4s, box-shadow .4s; }
+.menu.digulir { background: rgba(243, 239, 235, .86); backdrop-filter: blur(14px); box-shadow: 0 1px 0 rgba(29, 22, 23, .06); }
+.menu .wrap { display: flex; align-items: center; justify-content: space-between; }
+.menu__logo, .menu__kanan { display: flex; align-items: center; gap: 10px; }
+.menu__logo img { width: 26px; }
+.menu__logo span { font-family: "Marcellus", serif; font-size: 15px; letter-spacing: .14em; white-space: nowrap; }
+.menu__kanan { gap: 4px; }
+.menu__kanan a.tautan { padding: 6px 12px; font-size: 14px; color: #5D5354; border-radius: 999px; }
+.menu__kanan a.tautan:hover { background: rgba(29, 22, 23, .06); color: var(--tinta); }
+
+/* Pembuka */
+.pembuka { padding: 96px 0 28px; }
+.pembuka__grid { display: grid; grid-template-columns: 1fr 1.08fr; gap: 20px; min-height: min(760px, calc(100vh - 140px)); }
+.pembuka__teks { background: var(--kartu); border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 56px 40px; position: relative; overflow: hidden; }
+.alamat { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #6A5F60; background: var(--latar); padding: 6px 12px; border-radius: 999px; }
+.alamat svg { width: 14px; height: 14px; color: var(--marun); }
+.pembuka h1 { font-size: clamp(40px, 4.6vw, 64px); margin: 22px 0 18px; max-width: 12ch; }
+.kamar-mini { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--redup); margin-bottom: 26px; }
+.kamar-mini span { display: flex; }
+.kamar-mini img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; margin-left: -8px; }
+.kamar-mini img:first-child { margin-left: 0; }
+.pembuka__foto { position: relative; border-radius: 28px; overflow: hidden; background: radial-gradient(70% 60% at 55% 40%, #9B3A43, transparent 70%), linear-gradient(170deg, #3A0E13, var(--marun) 60%, #5A1C22); }
+.pembuka__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 32%; transform-origin: 72% 32%; }
+.pembuka__label { position: absolute; left: 18px; top: 18px; display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, .9); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 999px; font-size: 13px; }
+.pembuka__label b { font-weight: 600; color: var(--marun); }
+/* Animasi pembuka saat halaman dibuka (berakhir di keadaan diam yang utuh) */
+@keyframes naikHalus { from { opacity: 0; transform: translateY(22px); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes zoomFoto { from { transform: scale(1.14); } to { transform: scale(1); } }
+@keyframes kartuMasuk { from { opacity: 0; transform: translateY(30px) scale(.97); } to { opacity: 1; transform: none; } }
+.pembuka__teks > *, .pembuka__label, .fakta > div { animation: naikHalus 1s var(--halus) both; }
+.pembuka__teks > :nth-child(1) { animation-delay: .15s; } .pembuka__teks > :nth-child(2) { animation-delay: .3s; } .pembuka__teks > :nth-child(3) { animation-delay: .5s; } .pembuka__teks > :nth-child(4) { animation-delay: .65s; }
+.pembuka__teks, .pembuka__foto { animation: kartuMasuk 1.1s var(--halus) both; } .pembuka__foto { animation-delay: .1s; }
+.pembuka__foto img { animation: zoomFoto 2.2s var(--halus) both; }
+.pembuka__label { animation-delay: .9s; }
+.fakta > div:nth-child(1) { animation-delay: .7s; } .fakta > div:nth-child(2) { animation-delay: .8s; } .fakta > div:nth-child(3) { animation-delay: .9s; } .fakta > div:nth-child(4) { animation-delay: 1s; }
+.menu .wrap { animation: naikHalus .9s var(--halus) both; }
+.fakta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 20px; }
+.fakta > div { background: var(--kartu); border-radius: 20px; padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.fakta strong { font-size: 22px; font-weight: 500; letter-spacing: -.02em; }
+.fakta span { font-size: 13px; color: var(--redup); text-align: right; line-height: 1.3; }
+
+/* Teks muncul kata per kata (abu → gelap) */
+.kata { transition: color .6s ease, filter .6s ease; }
+.js [data-kata] .kata { color: #CFC6C3; filter: blur(2px); }
+.js [data-kata] .redup .kata { color: #E2DCD9; }
+.js [data-kata].nyala .kata { color: inherit; filter: none; transition-delay: calc(var(--i) * 45ms); }
+.js [data-kata].nyala .redup .kata { color: var(--redup); }
+
+/* Muncul saat digulir (bergerak dari keadaan yang sudah terlihat) */
+.js [data-muncul] { transform: translateY(28px) scale(.985); opacity: .35; transition: transform 1s var(--halus), opacity 1s var(--halus); transition-delay: calc(var(--d, 0) * 1ms); }
+.js [data-muncul].tampil { transform: none; opacity: 1; }
+
+.bagian { padding: 110px 0; }
+.bagian__judul { max-width: 640px; margin: 0 auto 50px; }
+.bagian__judul h2 { font-size: clamp(32px, 3.6vw, 48px); margin-top: 12px; }
+.bagian__judul p { color: var(--redup); margin-top: 14px; }
+
+/* Perkenalan: foto penuh + kartu angka */
+.kenal { position: relative; border-radius: 28px; overflow: hidden; min-height: 700px; background: linear-gradient(180deg, #2A0B0F, var(--marun) 70%, #5A1C22); color: #fff; }
+.kenal__gedung { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; object-position: 70% 40%; will-change: transform; }
+.kenal::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(20, 8, 10, .62) 0%, rgba(20, 8, 10, .15) 45%, rgba(20, 8, 10, 0) 70%); pointer-events: none; }
+.kenal__teks, .angka { z-index: 1; }
+.kenal__teks { position: relative; padding: 48px; max-width: 560px; }
+.kenal__teks .eyebrow { color: rgba(255, 255, 255, .7); }
+.kenal__teks .eyebrow::before { background: var(--sampanye); }
+.kenal h2 { font-size: clamp(30px, 3.4vw, 46px); margin-top: 12px; }
+.kenal h2 { text-shadow: 0 2px 24px rgba(20, 8, 10, .45); }
+.kenal h2 .redup { color: rgba(255, 255, 255, .78); }
+.angka { position: absolute; right: 28px; bottom: 28px; width: min(400px, calc(100% - 56px)); background: #fff; color: var(--tinta); border-radius: 22px; padding: 8px 22px; }
+.angka > div { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--garis); }
+.angka > div:last-child { border: 0; }
+.angka strong { font-size: 36px; font-weight: 500; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.angka span { font-size: 14px; color: var(--redup); text-align: right; line-height: 1.3; }
+
+/* Pernyataan + label berjalan */
+.pernyataan { text-align: center; }
+.pernyataan__logo { display: inline-flex; align-items: center; gap: 10px; background: #fff; padding: 6px 16px 6px 6px; border-radius: 999px; font-size: 13px; }
+.pernyataan__logo img { width: 30px; height: 30px; padding: 5px; background: var(--latar); border-radius: 50%; }
+.pernyataan blockquote { font-size: clamp(20px, 2vw, 26px); max-width: 34em; margin: 22px auto 0; color: #5D5354; line-height: 1.5; }
+.jalan { overflow: hidden; margin-top: 56px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.jalan__baris { display: flex; gap: 12px; width: max-content; animation: geser 38s linear infinite; padding: 6px 0; }
+.jalan__baris--balik { animation-direction: reverse; animation-duration: 44s; }
+.jalan:hover .jalan__baris { animation-play-state: paused; }
+.chip { display: inline-flex; align-items: center; gap: 10px; background: #fff; border-radius: 999px; padding: 10px 18px 10px 10px; font-size: clamp(16px, 1.6vw, 20px); white-space: nowrap; }
+.chip i { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--latar); color: var(--marun); }
+.chip i svg { width: 16px; height: 16px; }
+@keyframes geser { to { transform: translateX(-50%); } }
+
+/* Galeri kolase */
+.galeri { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 120px; gap: 16px; }
+.galeri figure { position: relative; border-radius: 20px; overflow: hidden; background: #ddd; cursor: pointer; }
+.galeri img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--halus); }
+.galeri figure:hover img { transform: scale(1.05); }
+.galeri figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(255, 255, 255, .92); border-radius: 999px; padding: 5px 12px; font-size: 13px; }
+.galeri figcaption b { font-weight: 600; color: var(--marun); margin-left: 6px; white-space: nowrap; }
+.g1 { grid-column: 1 / span 4; grid-row: span 3; }
+.g2 { grid-column: 5 / span 4; grid-row: span 2; }
+.g3 { grid-column: 9 / span 4; grid-row: span 3; }
+.g4 { grid-column: 5 / span 4; grid-row: span 2; }
+.g5 { grid-column: 1 / span 4; grid-row: span 2; }
+.g5 img { object-position: 72% 30%; }
+.g6 { grid-column: 9 / span 4; grid-row: span 1; background: var(--marun) !important; color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; font-size: 15px; }
+
+/* Sorotan */
+.sorot { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+.sorot > div { background: #fff; border-radius: 20px; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; }
+.sorot strong { font-size: 40px; font-weight: 500; letter-spacing: -.03em; line-height: 1; }
+.sorot p { font-size: 15px; margin-left: 14px; flex: 1; line-height: 1.35; }
+.sorot p small { display: block; color: var(--redup); font-size: 13px; }
+.sorot i { width: 40px; height: 40px; border-radius: 50%; background: var(--latar); display: grid; place-items: center; color: var(--marun); }
+.sorot i svg { width: 18px; height: 18px; }
+.fasil { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 12px; }
+.fasil__kol { display: grid; gap: 12px; }
+.fasil__kol div { background: #fff; border-radius: 16px; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; font-size: 15px; }
+.fasil__kol svg { width: 18px; height: 18px; color: var(--marun); }
+.fasil__tengah { background: #fff; border-radius: 16px; display: grid; place-content: center; text-align: center; gap: 10px; padding: 24px; }
+.fasil__tengah img { width: 46px; margin: 0 auto; }
+.fasil__tengah p { font-size: 18px; }
+.fasil__tengah small { color: var(--redup); font-size: 13px; }
+
+/* Banner */
+.banner { position: relative; border-radius: 28px; overflow: hidden; min-height: 360px; display: grid; place-items: center; text-align: center; color: #fff; isolation: isolate; }
+.banner__latar { position: absolute; inset: -30px; background: url(assets/kamar-deluxe.jpg) center / cover; filter: blur(16px) brightness(.55); transform: scale(1.1); z-index: -1; }
+.banner h2 { font-size: clamp(30px, 3.6vw, 48px); margin: 12px 0 24px; }
+.banner .eyebrow { color: rgba(255, 255, 255, .8); }
+.banner .eyebrow::before { background: var(--sampanye); }
+
+/* Tanya jawab */
+.tanya { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: start; }
+.tanya h2 { font-size: clamp(32px, 3.6vw, 48px); margin: 12px 0 24px; }
+.tanya details { background: #fff; border-radius: 18px; margin-bottom: 10px; overflow: hidden; }
+.tanya summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 14px 18px 14px 14px; font-size: 16px; }
+.tanya summary::-webkit-details-marker { display: none; }
+.tanya summary img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
+.tanya summary::after { content: ""; margin-left: auto; width: 10px; height: 10px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg) translateY(-3px); transition: transform .3s; }
+.tanya details[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+.tanya details p { padding: 0 20px 18px 62px; color: #6A5F60; }
+
+/* Bagian gelap: harga + carousel */
+.gelap { background: var(--gelap); color: #fff; border-radius: 36px 36px 0 0; padding-top: 110px; margin-top: 40px; }
+.harga { text-align: center; }
+.harga .eyebrow { color: rgba(255, 255, 255, .6); }
+.harga .eyebrow::before { background: var(--sampanye); }
+.harga h2 { font-size: clamp(44px, 5.4vw, 76px); margin: 14px 0 10px; }
+.harga h2 small { font-size: .4em; color: rgba(255, 255, 255, .55); letter-spacing: 0; }
+.harga p { color: rgba(255, 255, 255, .6); margin-bottom: 26px; }
+.karusel { overflow: hidden; padding: 70px 0 40px; }
+.karusel__baris { display: flex; gap: 18px; width: max-content; animation: geser 40s linear infinite; align-items: center; }
+.karusel figure { width: 230px; flex: none; border-radius: 18px; overflow: hidden; }
+.karusel figure:nth-child(odd) { height: 300px; transform: translateY(18px); }
+.karusel figure:nth-child(even) { height: 230px; }
+.karusel figure:nth-child(3n) { width: 290px; }
+.karusel img { width: 100%; height: 100%; object-fit: cover; }
+.karusel .gedung-kecil img { object-position: 72% 30%; }
+
+.lokasi { padding: 70px 0 90px; }
+.lokasi__isi { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; }
+.lokasi__kartu { background: var(--gelap-2); border-radius: 24px; padding: 34px; }
+.lokasi__kartu h3 { font-size: 28px; margin: 12px 0 20px; }
+.lokasi__kartu dl { display: grid; gap: 14px; font-size: 15px; }
+.lokasi__kartu dt { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .45); }
+.lokasi__kartu dd a { border-bottom: 1px solid rgba(255, 255, 255, .3); }
+.peta { position: relative; border-radius: 24px; overflow: hidden; min-height: 360px; background: var(--gelap-2); }
+.peta__cadangan { position: absolute; inset: 0; display: grid; place-content: center; gap: 12px; text-align: center; color: rgba(255, 255, 255, .6); font-size: 14px; }
+.peta__cadangan img { width: 48px; margin: 0 auto; opacity: .6; }
+.peta iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: invert(.9) hue-rotate(180deg) grayscale(.6) contrast(.9); }
+
+.kaki { border-top: 1px solid rgba(255, 255, 255, .1); padding-top: 60px; }
+.kaki__atas { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; }
+.kaki h3 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 22px; }
+.kaki h4 { font-weight: 400; font-size: 13px; color: rgba(255, 255, 255, .45); margin-bottom: 12px; }
+.kaki ul { list-style: none; display: grid; gap: 6px; font-size: 15px; }
+.kaki ul a:hover { color: var(--sampanye); }
+.kaki__bawah { display: flex; justify-content: space-between; gap: 16px; font-size: 13px; color: rgba(255, 255, 255, .45); margin: 60px 0 16px; }
+.merek { position: relative; border-radius: 24px 24px 0 0; overflow: hidden; height: clamp(150px, 20vw, 280px); background: linear-gradient(180deg, var(--marun), #3A0E13); }
+.merek > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 38%; }
+.merek::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(23, 18, 19, .55), rgba(23, 18, 19, .05) 70%); }
+.merek div { z-index: 1; }
+.merek div { position: absolute; left: 3%; bottom: -.12em; display: flex; align-items: flex-end; gap: .25em; font-family: "Marcellus", serif; font-size: clamp(40px, 10.5vw, 160px); line-height: 1; color: #fff; white-space: nowrap; }
+.merek div img { width: .7em; margin-bottom: .2em; }
+
+.wa-apung { position: fixed; right: 16px; bottom: 16px; z-index: 30; display: none; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; background: #1F8A4C; color: #fff; font-weight: 500; box-shadow: 0 12px 28px -8px rgba(0, 0, 0, .4); }
+.wa-apung svg { width: 22px; height: 22px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js [data-muncul] { transform: none; opacity: 1; transition: none; }
+  .js [data-kata] .kata { color: inherit; filter: none; }
+  .jalan__baris, .karusel__baris, .pembuka__teks, .pembuka__teks > *, .pembuka__foto, .pembuka__foto img, .pembuka__label, .fakta > div, .menu .wrap { animation: none; }
+}
+@media (max-width: 960px) {
+  .menu__kanan a.tautan { display: none; }
+  .pembuka__grid { grid-template-columns: 1fr; min-height: 0; }
+  .pembuka__foto { aspect-ratio: 4 / 3.6; }
+  .fakta { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .kenal { min-height: 760px; }
+  .kenal__gedung { object-position: 74% 30%; }
+  .kenal::after { background: linear-gradient(180deg, rgba(20, 8, 10, .8), rgba(20, 8, 10, .35) 32%, rgba(20, 8, 10, 0) 55%); }
+  .kenal__teks { padding: 32px 26px; }
+  .angka { right: 16px; left: 16px; bottom: 16px; width: auto; }
+  .galeri { grid-auto-rows: 110px; gap: 10px; }
+  .g1, .g3 { grid-column: span 6; grid-row: span 3; }
+  .g2, .g4 { grid-column: span 6; grid-row: span 2; }
+  .g5 { grid-column: span 12; grid-row: span 3; }
+  .g6 { grid-column: span 12; grid-row: span 1; }
+  .sorot, .fasil, .tanya, .lokasi__isi, .kaki__atas { grid-template-columns: 1fr; }
+  .tanya { gap: 10px; }
+}
+@media (max-width: 620px) {
+  .bagian { padding: 80px 0; }
+  .pembuka__teks { padding: 44px 22px; }
+  .fakta > div { flex-direction: column; align-items: flex-start; }
+  .fakta span { text-align: left; }
+  /* HP: label jadi dua baris rapi (nama di atas, harga di bawah), lebar & sudut seragam */
+  .galeri figcaption { left: 8px; right: 8px; bottom: 8px; display: flex; flex-direction: column; gap: 1px; padding: 7px 12px; border-radius: 12px; font-size: 12px; line-height: 1.3; }
+  .galeri figcaption b { margin-left: 0; font-size: 12px; }
+  .kaki__bawah { flex-direction: column; }
+  .menu__logo span { font-size: 13px; }
+  .merek { margin-bottom: 0; }
+}
+/* Foto asli Superior Room (potret): fokus ke kasur */
+img[src$="kamar-superior.jpg"] { object-position: 50% 68%; }
+img[src$="kamar-executive.jpg"] { object-position: 50% 66%; }
+img[src$="kamar-deluxe.jpg"] { object-position: 55% 62%; }
+img[src$="kamar-suite.jpg"] { object-position: 50% 62%; }
+.label-draf { position: fixed; left: 16px; bottom: 16px; z-index: 50; padding: 7px 14px; border-radius: 999px; background: rgba(15, 11, 11, .82); color: #F3EADF; font: 500 12px/1.2 "Jost", system-ui, sans-serif; letter-spacing: .08em; border: 1px solid rgba(243, 234, 223, .2); }
+.label-draf a { color: inherit; text-decoration: underline; margin-left: 6px; }
+</style>
+</head>
+<body>
+<div class="label-draf">DRAF WEBSITE · oleh Creaplin</div>
+<script>document.documentElement.classList.add('js');</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></symbol>
+  <symbol id="i-panah" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></symbol>
+  <symbol id="i-kasur" viewBox="0 0 24 24"><path d="M3 18V7M3 13h18v5M21 18v2M3 18v2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><rect x="6" y="9" width="5" height="4" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-kopi" viewBox="0 0 24 24"><path d="M4 11h13v1a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Zm13 1.5h1.5a2 2 0 0 1 0 4H16M8 4.5c0 1.2 1 1.2 1 2.4M12 3.5c0 1.2 1 1.2 1 2.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M3 9.5a13 13 0 0 1 18 0M6 13a8.5 8.5 0 0 1 12 0M9 16.5a4 4 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="19.5" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 20h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-mandi" viewBox="0 0 24 24"><path d="M7 20V7a3 3 0 0 1 6 0v.5M10 10h7l-.7 2H10.7Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 15v1M15 15v1.5M14 18.5v1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-gedung" viewBox="0 0 24 24"><path d="M5 21V6l7-3 7 3v15M3 21h18M9 9h1M14 9h1M9 13h1M14 13h1M10 21v-4h4v4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="menu">
+  <div class="wrap">
+    <a class="menu__logo" href="#"><img src="assets/emblem-marun.png" alt=""><span>THE VALMONT</span></a>
+    <nav class="menu__kanan" aria-label="Menu utama">
+      <a class="tautan" href="#galeri">Galeri</a>
+      <a class="tautan" href="#fasilitas">Fasilitas</a>
+      <a class="tautan" href="#tanya">Tanya jawab</a>
+      <a class="tautan" href="#lokasi">Lokasi</a>
+      <a class="pil" data-wa="Halo The Valmont Hotel, saya ingin menanyakan ketersediaan kamar." href="#"><i><svg><use href="#i-wa"/></svg></i>Pesan</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="pembuka">
+    <div class="wrap">
+      <div class="pembuka__grid">
+        <div class="pembuka__teks">
+          <span class="alamat"><svg><use href="#i-pin"/></svg>Jl. Sudirman No. 15, Bukittinggi</span>
+          <h1 data-kata>Menginap klasik <span class="redup">di Kota Bukittinggi</span></h1>
+          <div class="kamar-mini"><span id="kamarMini"></span>4 tipe kamar, semua dengan sarapan</div>
+          <a class="pil" data-wa="Halo The Valmont Hotel, saya ingin menanyakan ketersediaan kamar." href="#"><i><svg><use href="#i-wa"/></svg></i>Pesan via WhatsApp</a>
+        </div>
+        <div class="pembuka__foto">
+          <img id="gedungPembuka" src="assets/gedung-foto.webp" alt="Gedung The Valmont Hotel bergaya klasik dengan balkon besi">
+          <div class="pembuka__label">Mulai <b>Rp 1.350.000</b> / malam</div>
+        </div>
+      </div>
+      <div class="fakta">
+        <div><strong>4</strong><span>Tipe kamar</span></div>
+        <div><strong>King/Twin</strong><span>Pilihan kasur</span></div>
+        <div><strong>Sarapan</strong><span>Termasuk di<br>semua kamar</span></div>
+        <div><strong>Wi-Fi</strong><span>Gratis &amp;<br>Smart TV</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bagian" style="padding-top: 60px">
+    <div class="wrap">
+      <div class="kenal" id="kenal">
+        <img class="kenal__gedung" id="gedungKenal" src="assets/gedung-foto.webp" alt="" loading="lazy">
+        <div class="kenal__teks">
+          <span class="eyebrow">Perkenalan</span>
+          <h2 data-kata>Hotel bergaya klasik <span class="redup">di Jl. Sudirman, Bukittinggi</span></h2>
+        </div>
+        <div class="angka" data-muncul>
+          <div><strong data-hitung="4">0</strong><span>Tipe kamar,<br>dari Superior sampai Suite</span></div>
+          <div><strong data-hitung="100" data-akhir="%">0%</strong><span>Kamar sudah<br>termasuk sarapan</span></div>
+          <div><strong data-hitung="1350" data-depan="Rp " data-format="rb">Rp 0</strong><span>Harga mulai<br>per malam</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bagian pernyataan" style="padding-top: 20px">
+    <div class="wrap" data-muncul>
+      <span class="pernyataan__logo"><img src="assets/emblem-marun.png" alt="">The Valmont Hotel</span>
+      <blockquote>"Selamat datang di The Valmont. Kamar bergaya klasik, sarapan di setiap pagi, dan lokasi di Jl. Sudirman, siap jadi tempat istirahatmu selama di Bukittinggi."</blockquote>
+    </div>
+    <div class="jalan" aria-hidden="true">
+      <div class="jalan__baris" id="jalan1"></div>
+    </div>
+    <div class="jalan" aria-hidden="true" style="margin-top: 4px">
+      <div class="jalan__baris jalan__baris--balik" id="jalan2"></div>
+    </div>
+  </section>
+
+  <section class="bagian" id="galeri" style="padding-top: 30px">
+    <div class="wrap">
+      <div class="bagian__judul tengah">
+        <span class="eyebrow">Galeri</span>
+        <h2 data-kata>Di dalam <span class="redup">The Valmont</span></h2>
+        <p>Ketuk kamar untuk langsung bertanya lewat WhatsApp.</p>
+      </div>
+      <div class="galeri" id="galeriKamar"></div>
+    </div>
+  </section>
+
+  <section class="bagian" id="fasilitas" style="padding-top: 40px">
+    <div class="wrap">
+      <div class="bagian__judul tengah">
+        <span class="eyebrow">Fasilitas</span>
+        <h2 data-kata>Yang kamu <span class="redup">dapatkan</span></h2>
+      </div>
+      <div class="sorot">
+        <div data-muncul><strong>4</strong><p>Tipe kamar<small>Superior sampai Valmont Suite</small></p><i><svg><use href="#i-gedung"/></svg></i></div>
+        <div data-muncul style="--d:100"><strong>2</strong><p>Pilihan kasur<small>King bed atau Twin bed</small></p><i><svg><use href="#i-kasur"/></svg></i></div>
+        <div data-muncul style="--d:200"><strong>1</strong><p>Pesan lewat WhatsApp<small>Tanpa aplikasi tambahan</small></p><i><svg><use href="#i-wa"/></svg></i></div>
+      </div>
+      <div class="fasil">
+        <div class="fasil__kol">
+          <div data-muncul>Sarapan <svg><use href="#i-kopi"/></svg></div>
+          <div data-muncul style="--d:80">Wi-Fi gratis <svg><use href="#i-wifi"/></svg></div>
+          <div data-muncul style="--d:160">Smart TV <svg><use href="#i-tv"/></svg></div>
+        </div>
+        <div class="fasil__tengah" data-muncul style="--d:120"><img src="assets/emblem-marun.png" alt=""><p>Sudah termasuk<br>di setiap kamar</p><small>Tanpa biaya tambahan untuk fasilitas ini</small></div>
+        <div class="fasil__kol">
+          <div data-muncul>Kamar mandi lengkap <svg><use href="#i-mandi"/></svg></div>
+          <div data-muncul style="--d:80">King atau Twin bed <svg><use href="#i-kasur"/></svg></div>
+          <div data-muncul style="--d:160">Lokasi di Jl. Sudirman <svg><use href="#i-pin"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="banner" data-muncul>
+      <div class="banner__latar"></div>
+      <div>
+        <span class="eyebrow">Pemesanan langsung</span>
+        <h2>Pesan langsung ke hotel,<br>cukup lewat WhatsApp</h2>
+        <a class="pil pil--terang" data-wa="Halo The Valmont Hotel, saya ingin memesan kamar.\nTipe kamar: \nTanggal menginap: \nJumlah tamu: " href="#"><i><svg><use href="#i-wa"/></svg></i>Pesan sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bagian" id="tanya">
+    <div class="wrap tanya">
+      <div>
+        <span class="eyebrow">Tanya jawab</span>
+        <h2 data-kata>Yang sering <span class="redup">ditanyakan</span></h2>
+        <a class="pil" data-wa="Halo The Valmont Hotel, saya ingin bertanya." href="#"><i><svg><use href="#i-wa"/></svg></i>Tanya langsung</a>
+      </div>
+      <div>
+        <details open><summary><img src="assets/kamar-superior.jpg" alt="">Apakah harga kamar sudah termasuk sarapan?</summary><p>Ya. Semua tipe kamar, dari Superior Room sampai Valmont Suite Room, sudah termasuk sarapan, Wi-Fi gratis, dan Smart TV.</p></details>
+        <details><summary><img src="assets/kamar-deluxe.jpg" alt="">Apa beda tipe kamarnya?</summary><p>Superior Room dan Deluxe Room tersedia dengan King bed atau Twin bed. Executive Deluxe Room dan Valmont Suite Room memakai King size bed.</p></details>
+        <details><summary><img src="assets/kamar-executive.jpg" alt="">Bagaimana cara memesan kamar?</summary><p>Kirim pesan WhatsApp ke 0812-1234-7020 berisi tipe kamar, tanggal menginap, dan jumlah tamu. Kami akan mengecek ketersediaan kamar dan mengonfirmasi pesananmu.</p></details>
+        <details><summary><img src="assets/kamar-suite.jpg" alt="">Di mana lokasi hotel?</summary><p>Jl. Sudirman No. 15, RW 001 RT 002, Kel. Tarok Dipo, Kec. Guguak Panjang, Kota Bukittinggi.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="gelap">
+    <div class="wrap harga">
+      <span class="eyebrow">Harga</span>
+      <h2>Rp 1.350.000<small> / malam</small></h2>
+      <p>Mulai dari Superior Room. Sudah termasuk sarapan, Wi-Fi, dan Smart TV.</p>
+      <a class="pil pil--terang" data-wa="Halo The Valmont Hotel, saya ingin memesan kamar.\nTipe kamar: \nTanggal menginap: \nJumlah tamu: " href="#"><i><svg><use href="#i-wa"/></svg></i>Pesan sekarang</a>
+    </div>
+    <div class="karusel" aria-hidden="true"><div class="karusel__baris" id="karusel"></div></div>
+
+    <div class="wrap lokasi" id="lokasi">
+      <div class="lokasi__isi">
+        <div class="lokasi__kartu">
+          <span class="eyebrow" style="color: rgba(255,255,255,.6)">Lokasi</span>
+          <h3>Temukan kami di Jl. Sudirman</h3>
+          <dl>
+            <div><dt>Alamat</dt><dd>Jl. Sudirman No. 15, RW 001 RT 002, Kel. Tarok Dipo, Kec. Guguak Panjang, Kota Bukittinggi</dd></div>
+            <div><dt>WhatsApp</dt><dd><a data-wa="Halo The Valmont Hotel, saya ingin menanyakan ketersediaan kamar." href="#">0812-1234-7020</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:hotelvalmontbukittinggi@gmail.com">hotelvalmontbukittinggi@gmail.com</a></dd></div>
+            <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/thevalmontbukittinggi/" target="_blank" rel="noopener">@thevalmontbukittinggi</a></dd></div>
+          </dl>
+        </div>
+        <div class="peta">
+          <div class="peta__cadangan"><img src="assets/emblem-krem.png" alt="">Memuat peta…</div>
+          <iframe title="Peta lokasi The Valmont Hotel" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Jl.%20Sudirman%20No.%2015%2C%20Tarok%20Dipo%2C%20Bukittinggi&amp;z=16&amp;output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <footer class="wrap kaki">
+      <div class="kaki__atas">
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,.6)">The Valmont</span>
+          <h3>Siap menyambutmu<br>di Bukittinggi</h3>
+          <a class="pil pil--terang" data-wa="Halo The Valmont Hotel, saya ingin memesan kamar.\nTipe kamar: \nTanggal menginap: \nJumlah tamu: " href="#"><i><svg><use href="#i-wa"/></svg></i>Pesan sekarang</a>
+        </div>
+        <div><h4>Menu</h4><ul><li><a href="#galeri">Galeri</a></li><li><a href="#fasilitas">Fasilitas</a></li><li><a href="#tanya">Tanya jawab</a></li><li><a href="#lokasi">Lokasi</a></li></ul></div>
+        <div><h4>Kontak</h4><ul><li><a data-wa="Halo The Valmont Hotel, saya ingin menanyakan ketersediaan kamar." href="#">WhatsApp 0812-1234-7020</a></li><li><a href="mailto:hotelvalmontbukittinggi@gmail.com">Email</a></li><li><a href="https://www.instagram.com/thevalmontbukittinggi/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+      </div>
+      <div class="kaki__bawah"><span>© <span id="tahun">2026</span> The Valmont Hotel Bukittinggi</span><span>Website oleh <a href="https://creaplinverse.github.io" target="_blank" rel="noopener">Creaplin</a></span></div>
+      <div class="merek" aria-hidden="true"><img src="assets/gedung-foto.webp" alt=""><div><img src="assets/emblem-krem.png" alt="">The Valmont</div></div>
+    </footer>
+  </section>
+</main>
+
+<a class="wa-apung" data-wa="Halo The Valmont Hotel, saya ingin menanyakan ketersediaan kamar." href="#" aria-label="Pesan via WhatsApp"><svg><use href="#i-wa"/></svg>Pesan</a>
+
+<script>
+// ===== Data yang paling sering diubah: nomor WA dan daftar kamar =====
+const WA = '6281212347020'; // 0812-1234-7020 (pastikan nomor ini aktif di WhatsApp)
+const KAMAR = [
+  { nama: 'Superior Room', harga: 1350000, foto: 'kamar-superior.jpg' },
+  { nama: 'Deluxe Room', harga: 1550000, foto: 'kamar-deluxe.jpg' },
+  { nama: 'Executive Deluxe Room', harga: 1950000, foto: 'kamar-executive.jpg' },
+  { nama: 'Valmont Suite Room', harga: 3750000, foto: 'kamar-suite.jpg' }
+];
+const LABEL = [
+  ['Sarapan setiap pagi', 'i-kopi'], ['Wi-Fi gratis', 'i-wifi'], ['Smart TV', 'i-tv'], ['King bed', 'i-kasur'],
+  ['Twin bed', 'i-kasur'], ['Kamar mandi lengkap', 'i-mandi'], ['Jl. Sudirman, Bukittinggi', 'i-pin'], ['Pesan via WhatsApp', 'i-wa'], ['Bangunan bergaya klasik', 'i-gedung']
+];
+// ======================================================================
+
+const gerakPelan = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const rupiah = n => 'Rp ' + n.toLocaleString('id-ID');
+const singkat = n => 'Rp ' + (n / 1e6).toLocaleString('id-ID', { maximumFractionDigits: 2 }) + ' jt';
+const linkWA = p => 'https://wa.me/' + WA + '?text=' + encodeURIComponent(p);
+const pesanKamar = nama => `Halo The Valmont Hotel, saya ingin memesan ${nama}.\\nTanggal menginap: \\nJumlah tamu: `;
+
+// Foto kecil kamar di pembuka
+document.getElementById('kamarMini').innerHTML = KAMAR.map(k => `<img src="assets/${k.foto}" alt="">`).join('');
+
+// Label berjalan (dua baris, isi digandakan supaya bersambung)
+const chip = ([t, i]) => `<span class="chip"><i><svg><use href="#${i}"/></svg></i>${t}</span>`;
+const barisA = LABEL.map(chip).join(''), barisB = [...LABEL].reverse().map(chip).join('');
+document.getElementById('jalan1').innerHTML = barisA + barisA;
+document.getElementById('jalan2').innerHTML = barisB + barisB;
+
+// Galeri kolase
+const g = KAMAR.map((k, i) => `<figure class="g${i + 1}" data-muncul style="--d:${i * 90}" data-wa="${pesanKamar(k.nama)}"><img src="assets/${k.foto}" alt="${k.nama}" loading="lazy"><figcaption>${k.nama}<b>${singkat(k.harga)}</b></figcaption></figure>`);
+g.push(`<figure class="g5" data-muncul style="--d:360"><img src="assets/gedung-foto.webp" alt="Gedung The Valmont Hotel" loading="lazy"><figcaption>Gedung hotel</figcaption></figure>`);
+g.push(`<a class="g6" data-muncul style="--d:450" href="#tanya" style="border-radius:20px">Lihat tanya jawab <svg width="16" height="16"><use href="#i-panah"/></svg></a>`);
+document.getElementById('galeriKamar').innerHTML = g.join('');
+document.querySelector('.g6').style.borderRadius = '20px';
+
+// Karusel foto di bagian gelap
+const kar = [...KAMAR.map(k => `<figure><img src="assets/${k.foto}" alt=""></figure>`), `<figure class="gedung-kecil"><img src="assets/gedung-foto.webp" alt=""></figure>`].join('');
+document.getElementById('karusel').innerHTML = kar + kar + kar + kar;
+
+// Semua tautan WhatsApp
+document.querySelectorAll('[data-wa]').forEach(a => {
+  const url = linkWA(a.dataset.wa.replace(/\\n/g, '\n'));
+  if (a.tagName === 'A') { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
+  else { a.setAttribute('role', 'link'); a.tabIndex = 0; a.addEventListener('click', () => window.open(url, '_blank', 'noopener')); }
+});
+document.getElementById('tahun').textContent = new Date().getFullYear();
+
+// Pecah judul jadi kata
+document.querySelectorAll('[data-kata]').forEach(el => {
+  let n = 0;
+  const pecah = node => [...node.childNodes].forEach(c => {
+    if (c.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(t => {
+        if (!t.trim()) { f.append(t); return; }
+        const s = document.createElement('span'); s.className = 'kata'; s.style.setProperty('--i', n++); s.textContent = t; f.append(s);
+      });
+      c.replaceWith(f);
+    } else pecah(c);
+  });
+  pecah(el);
+});
+
+// Angka menghitung naik
+function hitung(el) {
+  const akhir = +el.dataset.hitung, depan = el.dataset.depan || '', blk = el.dataset.akhir || '', rb = el.dataset.format === 'rb';
+  const tulis = v => rb ? depan + (v / 1000).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' jt' : depan + Math.round(v) + blk;
+  if (gerakPelan) { el.textContent = tulis(akhir); return; }
+  const mulai = performance.now(), lama = 1600;
+  const langkah = t => { const p = Math.min(1, (t - mulai) / lama), e = 1 - Math.pow(1 - p, 3); el.textContent = tulis(akhir * e); if (p < 1) requestAnimationFrame(langkah); };
+  requestAnimationFrame(langkah);
+}
+document.querySelectorAll('[data-hitung]').forEach(el => { el.textContent = (el.dataset.depan || '') + (el.dataset.format === 'rb' ? '1,35 jt' : el.dataset.hitung + (el.dataset.akhir || '')); });
+
+// Pengamat gulir
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const el = e.target;
+  if (el.hasAttribute('data-kata')) el.classList.add('nyala');
+  if (el.hasAttribute('data-muncul')) el.classList.add('tampil');
+  el.querySelectorAll?.('[data-hitung]').forEach(hitung);
+  io.unobserve(el);
+}), { rootMargin: '0px 0px -12% 0px' });
+document.querySelectorAll('[data-kata], [data-muncul]').forEach(el => gerakPelan ? el.classList.add('nyala', 'tampil') : io.observe(el));
+
+// Gerak gulir halus: gedung di pembuka & perkenalan
+const gp = document.getElementById('gedungPembuka'), gk = document.getElementById('gedungKenal'), kenal = document.getElementById('kenal');
+const menu = document.querySelector('.menu');
+function gulir() {
+  menu.classList.toggle('digulir', scrollY > 20);
+  if (gerakPelan) return;
+  const y = scrollY;
+  gp.style.transform = `translateY(${Math.min(y * .08, 60)}px) scale(${1 + Math.min(y, 600) / 6000})`;
+  const r = kenal.getBoundingClientRect();
+  gk.style.transform = `translateY(${(r.top) * -0.08}px)`;
+}
+let antre = false;
+addEventListener('scroll', () => { if (!antre) { antre = true; requestAnimationFrame(() => { gulir(); antre = false; }); } }, { passive: true });
+gulir();
+</script>
+</body>
+</html>

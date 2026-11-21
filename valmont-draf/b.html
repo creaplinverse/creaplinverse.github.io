@@ -241,11 +241,16 @@ h1 .redup, h2 .redup { color: var(--redup); }
 .wa-apung { position: fixed; right: 16px; bottom: 16px; z-index: 30; display: none; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; background: #1F8A4C; color: #fff; font-weight: 500; box-shadow: 0 12px 28px -8px rgba(0, 0, 0, .4); }
 .wa-apung svg { width: 22px; height: 22px; }
 
+/* Mode "Kurangi gerakan" (iPhone/Android): tidak ada gerak, geser, atau blur, tapi tetap ada pudar halus,
+   judul abu ke gelap, dan angka yang menghitung, supaya halaman tetap terasa hidup. */
+@keyframes pudar { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .js [data-muncul] { transform: none; opacity: 1; transition: none; }
-  .js [data-kata] .kata { color: inherit; filter: none; }
-  .jalan__baris, .karusel__baris, .pembuka__teks, .pembuka__teks > *, .pembuka__foto, .pembuka__foto img, .pembuka__label, .fakta > div, .menu .wrap { animation: none; }
+  .js [data-muncul] { transform: none; transition: opacity .9s ease; }
+  .js [data-kata] .kata { filter: none; }
+  .pembuka__teks > *, .pembuka__label, .fakta > div, .menu .wrap, .pembuka__teks, .pembuka__foto { animation-name: pudar; }
+  .pembuka__foto img { animation: none; }
+  .jalan__baris, .karusel__baris { animation: none; }
 }
 @media (max-width: 960px) {
   .menu__kanan a.tautan { display: none; }
@@ -549,7 +554,6 @@ document.querySelectorAll('[data-kata]').forEach(el => {
 function hitung(el) {
   const akhir = +el.dataset.hitung, depan = el.dataset.depan || '', blk = el.dataset.akhir || '', rb = el.dataset.format === 'rb';
   const tulis = v => rb ? depan + (v / 1000).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' jt' : depan + Math.round(v) + blk;
-  if (gerakPelan) { el.textContent = tulis(akhir); return; }
   const mulai = performance.now(), lama = 1600;
   const langkah = t => { const p = Math.min(1, (t - mulai) / lama), e = 1 - Math.pow(1 - p, 3); el.textContent = tulis(akhir * e); if (p < 1) requestAnimationFrame(langkah); };
   requestAnimationFrame(langkah);
@@ -565,7 +569,7 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   el.querySelectorAll?.('[data-hitung]').forEach(hitung);
   io.unobserve(el);
 }), { rootMargin: '0px 0px -12% 0px' });
-document.querySelectorAll('[data-kata], [data-muncul]').forEach(el => gerakPelan ? el.classList.add('nyala', 'tampil') : io.observe(el));
+document.querySelectorAll('[data-kata], [data-muncul]').forEach(el => io.observe(el));
 
 // Gerak gulir halus: gedung di pembuka & perkenalan
 const gp = document.getElementById('gedungPembuka'), gk = document.getElementById('gedungKenal'), kenal = document.getElementById('kenal');

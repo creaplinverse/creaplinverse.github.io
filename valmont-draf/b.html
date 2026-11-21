@@ -250,8 +250,12 @@ h1 .redup, h2 .redup { color: var(--redup); }
   .js [data-kata] .kata { filter: none; }
   .pembuka__teks > *, .pembuka__label, .fakta > div, .menu .wrap, .pembuka__teks, .pembuka__foto { animation-name: pudar; }
   .pembuka__foto img { animation: none; }
-  .jalan__baris, .karusel__baris { animation: none; }
+  /* Label & karusel tetap berjalan tapi lebih pelan; berhenti saat disentuh/diarahkan kursor */
+  .jalan__baris { animation-duration: 70s; }
+  .jalan__baris--balik { animation-duration: 80s; }
+  .karusel__baris { animation-duration: 80s; }
 }
+.karusel:hover .karusel__baris, .jalan:active .jalan__baris, .karusel:active .karusel__baris { animation-play-state: paused; }
 @media (max-width: 960px) {
   .menu__kanan a.tautan { display: none; }
   .pembuka__grid { grid-template-columns: 1fr; min-height: 0; }

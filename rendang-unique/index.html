@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rendang Unique · Hampers Lebaran</title>
+<meta name="description" content="Rendang Minang praktis untuk stok di rumah dan hampers Lebaran. Pesan langsung via WhatsApp.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,700&family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17110d; --ink-2:#2a211b; --cream:#f7f0e4; --paper:#fffaf2; --muted:#6d6257;
+  --gold:#e8b84a; --green:#103b31; --line:rgba(23,17,13,.12);
+  --r:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink);background:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+
+/* ---------- tombol ---------- */
+.btn{display:inline-flex;align-items:center;gap:.55em;font-weight:700;font-size:15px;padding:.95em 1.5em;border-radius:999px;background:var(--ink);color:#fff;transition:transform .2s,background .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);background:#000}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.light:hover{background:var(--cream)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ---------- navigasi ---------- */
+.nav{position:absolute;inset:0 0 auto;z-index:20;padding:22px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{width:40px;height:auto}
+.logo .wm{display:flex;flex-direction:column;line-height:1}
+.logo .wm small{font-family:"Marcellus",serif;font-size:11px;letter-spacing:.28em;margin-left:2px}
+.logo .wm b{font-family:"Marcellus",serif;font-weight:400;font-size:21px;letter-spacing:.14em}
+.nav ul{display:flex;gap:30px;list-style:none;font-weight:600;font-size:15px}
+.nav ul a{opacity:.85}.nav ul a:hover{opacity:1}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;
+  background:
+    radial-gradient(60% 40% at 15% 88%,rgba(255,255,255,.95),rgba(255,255,255,0) 70%),
+    radial-gradient(45% 30% at 85% 92%,rgba(255,255,255,.9),rgba(255,255,255,0) 70%),
+    radial-gradient(35% 22% at 70% 30%,rgba(255,255,255,.55),rgba(255,255,255,0) 70%),
+    linear-gradient(180deg,#6fb8b5 0%,#a9d4cc 38%,#f3e3bf 78%,#f7ead0 100%);}
+.moon{position:absolute;top:13%;right:12%;width:70px;height:70px;border-radius:50%;box-shadow:-14px 6px 0 0 var(--gold);transform:rotate(-20deg);opacity:.95}
+.bigword{position:absolute;top:31%;left:0;white-space:nowrap;font-weight:800;font-size:clamp(90px,16vw,230px);letter-spacing:-.04em;color:rgba(255,255,255,.28);animation:slide 40s linear infinite;user-select:none;line-height:1}
+@keyframes slide{to{transform:translateX(-50%)}}
+.hero-stage{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);width:min(560px,90vw);height:min(460px,64vw)}
+.hero-stage .pouch{position:absolute;--s:clamp(11px,1.45vw,17px)}
+.hero-stage .p1{left:6%;top:4%;transform:rotate(-13deg);animation:float1 6s ease-in-out infinite}
+.hero-stage .p2{right:6%;top:14%;transform:rotate(11deg);animation:float2 7s ease-in-out infinite}
+@keyframes float1{50%{transform:rotate(-10deg) translateY(-16px)}}
+@keyframes float2{50%{transform:rotate(14deg) translateY(-12px)}}
+.hero-copy{position:absolute;left:0;right:0;bottom:7vh;z-index:3}
+.hero-copy .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
+.hero h1{font-weight:800;font-size:clamp(40px,6.4vw,92px);line-height:.98;letter-spacing:-.035em}
+.hero-side{max-width:320px;display:grid;gap:18px;justify-items:start;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.55em 1em;border-radius:99px;background:rgba(255,255,255,.7);backdrop-filter:blur(6px)}
+
+/* ---------- kemasan (pouch) ---------- */
+.pouch{font-size:var(--s,14px);width:12em;height:16.2em;position:relative;border-radius:1em 1em 1.5em 1.5em;
+  background:linear-gradient(160deg,var(--c1),var(--c2));color:#fff;padding:1.7em 1.1em 1em;
+  box-shadow:0 2.2em 3em -1.4em rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.pouch::before{content:"";position:absolute;inset:0 0 auto;height:1.05em;background:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 2px,transparent 2px 6px);border-bottom:1px solid rgba(255,255,255,.18)}
+.pouch::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.16) 42%,transparent 55%);pointer-events:none}
+.pouch .cow{width:2.6em;opacity:.95}
+.pouch .br{font-family:"Marcellus",serif;text-align:center;line-height:1;margin-top:.25em}
+.pouch .br small{display:block;font-size:.5em;letter-spacing:.3em}
+.pouch .br b{font-weight:400;font-size:.95em;letter-spacing:.16em}
+.pouch .nm{margin-top:.55em;text-align:center;line-height:1}
+.pouch .nm i{font-family:"Fraunces",serif;font-weight:700;font-size:1.75em;color:var(--gold);display:block;letter-spacing:-.01em}
+.pouch .nm small{font-size:.62em;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.pouch .win{margin-top:auto;width:100%;height:5.6em;border-radius:3em 3em .8em .8em;overflow:hidden;border:2px solid rgba(255,255,255,.25)}
+.pouch .win img{width:100%;height:100%;object-fit:cover}
+.daging{--c1:#a3231f;--c2:#621010}
+.suwir{--c1:#7a35a3;--c2:#45195f}
+.telur{--c1:#3a332a;--c2:#141210}
+.paru{--c1:#25683e;--c2:#103a22}
+.tumbuk{--c1:#2b3d86;--c2:#141e4c}
+
+/* ---------- varian ---------- */
+.sec-dark{background:var(--ink);color:#fff;padding:110px 0 120px}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px}
+.head h2{font-weight:800;font-size:clamp(34px,4.6vw,62px);line-height:1.02;letter-spacing:-.03em}
+.head p{max-width:360px;color:rgba(255,255,255,.7);line-height:1.6;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{border-radius:var(--r);padding:34px 34px 0;color:var(--ink);display:flex;flex-direction:column;min-height:520px;overflow:hidden;position:relative}
+.card h3{font-weight:800;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.02em}
+.card p{margin:10px 0 22px;max-width:340px;line-height:1.55;color:#3e352d;font-size:15px}
+.card .btn{align-self:flex-start}
+.card .stage{margin-top:auto;display:flex;justify-content:center;padding-top:40px;transform:translateY(46px);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.card:hover .stage{transform:translateY(20px) rotate(-2deg)}
+.card .stage .pouch{--s:clamp(15px,1.7vw,19px)}
+.badge{position:absolute;top:28px;right:28px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:#fff;padding:.5em .9em;border-radius:99px}
+.bg-daging{background:#f5d9d2}.bg-suwir{background:#e8dcf2}.bg-telur{background:#f4e9c4}.bg-paru{background:#d8e9d5}.bg-tumbuk{background:#d8e0f2}
+.card.wide{grid-column:1/-1;min-height:380px;flex-direction:row;align-items:stretch;gap:30px;padding-bottom:34px}
+.card.wide .txt{display:flex;flex-direction:column;justify-content:center}
+.card.wide .stage{margin:0 0 0 auto;padding:0 40px 0 0;transform:none;align-items:center}
+.card.wide:hover .stage{transform:rotate(-3deg)}
+
+/* ---------- hampers ---------- */
+.hampers{background:var(--cream);padding:120px 0}
+.hampers .head h2{color:var(--ink)}
+.hampers .head p{color:var(--muted)}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#b0442f;margin-bottom:14px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:14px}
+.plan.hot{background:var(--ink);color:#fff;border-color:var(--ink)}
+.fan{height:190px;position:relative;display:flex;justify-content:center;align-items:flex-end;margin-bottom:6px}
+.fan .pouch{--s:9.5px;position:absolute;bottom:0}
+.plan h3{font-weight:800;font-size:24px;letter-spacing:-.02em}
+.plan .isi{font-size:14.5px;line-height:1.6;color:var(--muted)}
+.plan.hot .isi{color:rgba(255,255,255,.7)}
+.plan ul{list-style:none;display:grid;gap:8px;font-size:14.5px;margin-bottom:8px}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"";width:18px;height:18px;flex:none;margin-top:1px;border-radius:50%;background:#e9dcc6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%2317110d' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.plan.hot li::before{background-color:var(--gold)}
+.plan .btn{margin-top:auto;justify-content:center}
+.plan.hot .btn{background:var(--gold);color:var(--ink)}
+.po{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:center;font-size:14.5px;font-weight:600;color:var(--ink-2)}
+.po span{display:flex;align-items:center;gap:8px}
+.po span::before{content:"";width:8px;height:8px;border-radius:50%;background:#b0442f}
+
+/* ---------- cerita ---------- */
+.story{background:var(--green);color:#fff;padding:120px 0}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.story .ph{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:#0a2a22}
+.story .ph img{width:100%;height:100%;object-fit:cover}
+.story .eyebrow{color:var(--gold)}
+.story h2{font-weight:800;font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-.03em;margin-bottom:22px}
+.story p{color:rgba(255,255,255,.78);line-height:1.7;font-size:16px;margin-bottom:14px;max-width:480px}
+.stats{display:flex;gap:42px;margin:34px 0;padding-top:30px;border-top:1px solid rgba(255,255,255,.18)}
+.stats b{display:block;font-size:40px;font-weight:800;letter-spacing:-.03em}
+.stats small{font-size:13px;color:rgba(255,255,255,.65)}
+
+/* ---------- cara pesan ---------- */
+.how{background:var(--paper);padding:110px 0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.step{border-top:2px solid var(--ink);padding-top:22px}
+.step b{font-size:14px;font-weight:800;color:#b0442f}
+.step h3{font-size:22px;font-weight:800;letter-spacing:-.02em;margin:8px 0}
+.step p{color:var(--muted);line-height:1.6;font-size:15px}
+.cta{margin-top:60px;border-radius:var(--r);background:linear-gradient(120deg,#a3231f,#621010);color:#fff;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta h3{font-size:clamp(26px,3vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.1;max-width:560px}
+.cta .row{display:flex;gap:12px;flex-wrap:wrap}
+.cta .ghost{background:transparent;border:1.5px solid rgba(255,255,255,.5)}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#fff;padding:90px 0 0;overflow:hidden}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot h4{font-size:15px;margin-bottom:16px}
+.foot ul{list-style:none;display:grid;gap:10px;font-size:14.5px;color:rgba(255,255,255,.7)}
+.foot ul a:hover{color:#fff}
+.foot .lead{font-size:26px;font-weight:700;line-height:1.25;letter-spacing:-.02em;max-width:360px}
+.giant{font-family:"Marcellus",serif;font-size:clamp(64px,19.5vw,300px);line-height:.8;letter-spacing:0;white-space:nowrap;color:var(--cream);text-align:center;margin-top:70px;transform:translateY(12%)}
+.legal{position:relative;z-index:2;background:var(--ink);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0 22px;font-size:13px;color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.1)}
+
+/* ---------- WA mengambang (HP) ---------- */
+.float-wa{position:fixed;right:16px;bottom:16px;z-index:50;display:none;box-shadow:0 10px 30px rgba(0,0,0,.3);background:#1f9d55}
+
+/* ---------- responsif ---------- */
+@media (max-width:900px){
+  .nav ul{display:none}
+  .head{flex-direction:column;align-items:flex-start}
+  .grid,.plans,.steps,.foot,.story .wrap{grid-template-columns:1fr}
+  .card{min-height:470px}
+  .card.wide{flex-direction:column;padding-bottom:0}
+  .card.wide .stage{margin:auto 0 0;padding:40px 0 0;transform:translateY(46px);justify-content:center}
+  .hero-copy .wrap{flex-direction:column;align-items:flex-start;gap:18px}
+  .hero-stage{top:40%}
+  .stats{gap:26px}
+  .cta{padding:32px}
+  .float-wa{display:inline-flex}
+}
+@media (max-width:520px){
+  .wrap{width:calc(100% - 32px)}
+  .nav .btn{display:none}
+  .card{padding:26px 24px 0}
+  .badge{position:static;align-self:flex-start;margin-bottom:12px}
+  .fan{transform:scale(.88)}
+  .plan{padding:24px}
+  .stats b{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <nav class="nav">
+    <div class="wrap">
+      <a href="#" class="logo" aria-label="Rendang Unique">
+        <img src="img/sapi-gelap.png" alt="">
+        <span class="wm"><small>rendang</small><b>UNIQUÉ</b></span>
+      </a>
+      <ul>
+        <li><a href="#varian">Varian</a></li>
+        <li><a href="#hampers">Hampers Lebaran</a></li>
+        <li><a href="#cerita">Cerita kami</a></li>
+      </ul>
+      <a class="btn" data-wa="Halo Rendang Unique, saya mau pesan rendang.">Pesan via WhatsApp</a>
+    </div>
+  </nav>
+
+  <div class="moon" aria-hidden="true"></div>
+  <div class="bigword" aria-hidden="true">DIMASAK PERLAHAN · DIMASAK PERLAHAN · DIMASAK PERLAHAN · DIMASAK PERLAHAN ·&nbsp;</div>
+
+  <div class="hero-stage" aria-hidden="true">
+    <div class="pouch daging p1">
+      <img class="cow" src="img/sapi-putih.png" alt="">
+      <div class="br"><small>rendang</small><b>UNIQUÉ</b></div>
+      <div class="nm"><i>Rendang</i><small>Daging Sapi</small></div>
+      <div class="win"><img src="img/daging.jpg" alt=""></div>
+    </div>
+    <div class="pouch paru p2">
+      <img class="cow" src="img/sapi-putih.png" alt="">
+      <div class="br"><small>rendang</small><b>UNIQUÉ</b></div>
+      <div class="nm"><i>Rendang</i><small>Paru Sapi</small></div>
+      <div class="win"><img src="img/paru.jpg" alt=""></div>
+    </div>
+  </div>
+
+  <div class="hero-copy">
+    <div class="wrap">
+      <h1>Rendang Minang.<br>Hampers paling dinanti.</h1>
+      <div class="hero-side">
+        <span class="tag">Pre-order Lebaran 1448 H</span>
+        <p>Rendang dalam kemasan praktis, siap jadi stok di rumah, bekal mudik, atau hampers untuk keluarga dan rekan kerja.</p>
+        <a href="#hampers" class="btn">Lihat paket hampers</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="sec-dark" id="varian">
+  <div class="wrap">
+    <div class="head">
+      <h2>Lima varian,<br>satu rasa rumah.</h2>
+      <p>Pilih satu untuk stok sendiri, atau campur beberapa varian untuk isi hampers. Semua bisa dipesan langsung lewat WhatsApp.</p>
+    </div>
+    <div class="grid">
+      <article class="card bg-daging">
+        <span class="badge">Terlaris</span>
+        <h3>Rendang Daging Sapi</h3>
+        <p>Potongan daging sapi berbumbu pekat khas Minang. Pilihan klasik yang selalu habis duluan di meja Lebaran.</p>
+        <a class="btn" data-wa="Halo, saya mau pesan Rendang Daging Sapi.">Pesan via WhatsApp</a>
+        <div class="stage"><div class="pouch daging"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="Rendang daging sapi" loading="lazy"></div></div></div>
+      </article>
+      <article class="card bg-paru">
+        <span class="badge">Terlaris</span>
+        <h3>Rendang Paru Sapi</h3>
+        <p>Paru sapi renyah berbalut bumbu rendang. Gurih, kering, dan cocok jadi lauk maupun camilan.</p>
+        <a class="btn" data-wa="Halo, saya mau pesan Rendang Paru Sapi.">Pesan via WhatsApp</a>
+        <div class="stage"><div class="pouch paru"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Paru Sapi</small></div><div class="win"><img src="img/paru.jpg" alt="Rendang paru sapi" loading="lazy"></div></div></div>
+      </article>
+      <article class="card bg-suwir">
+        <h3>Rendang Suwir Sapi</h3>
+        <p>Daging sapi disuwir halus dengan bumbu yang meresap. Pas untuk nasi hangat, roti, atau isian lontong.</p>
+        <a class="btn" data-wa="Halo, saya mau pesan Rendang Suwir Sapi.">Pesan via WhatsApp</a>
+        <div class="stage"><div class="pouch suwir"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Suwir Sapi</small></div><div class="win"><img src="img/suwir.jpg" alt="Rendang suwir sapi" loading="lazy"></div></div></div>
+      </article>
+      <article class="card bg-telur">
+        <h3>Rendang Telur Krispi</h3>
+        <p>Renyah, gurih, dan bikin nagih. Teman ngobrol yang pas waktu tamu datang bersilaturahmi.</p>
+        <a class="btn" data-wa="Halo, saya mau pesan Rendang Telur Krispi.">Pesan via WhatsApp</a>
+        <div class="stage"><div class="pouch telur"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Telur Krispi</small></div><div class="win"><img src="img/telur.jpg" alt="Rendang telur krispi" loading="lazy"></div></div></div>
+      </article>
+      <article class="card wide bg-tumbuk">
+        <div class="txt">
+          <h3>Rendang Tumbuk Sapi</h3>
+          <p>Daging sapi ditumbuk lalu dimasak dengan bumbu rendang hingga lembut. Favorit untuk anak-anak dan orang tua.</p>
+          <a class="btn" data-wa="Halo, saya mau pesan Rendang Tumbuk Sapi.">Pesan via WhatsApp</a>
+        </div>
+        <div class="stage"><div class="pouch tumbuk"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Tumbuk Sapi</small></div><div class="win"><img src="img/tumbuk.jpg" alt="Rendang tumbuk sapi" loading="lazy"></div></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="hampers" id="hampers">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow">Hampers Lebaran 1448 H</div>
+        <h2>Kirim rendang,<br>kirim rasa rindu.</h2>
+      </div>
+      <p>Untuk keluarga di rantau, rekan kerja, atau pelanggan setia. Pilih paketnya, kami kemas rapi lengkap dengan kartu ucapan.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <div class="fan" aria-hidden="true">
+          <div class="pouch daging" style="transform:translateX(-38px) rotate(-8deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch paru" style="transform:translateX(38px) rotate(8deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Paru Sapi</small></div><div class="win"><img src="img/paru.jpg" alt="" loading="lazy"></div></div>
+        </div>
+        <h3>Paket Silaturahmi</h3>
+        <p class="isi">Hampers mungil untuk tetangga dan teman dekat.</p>
+        <ul><li>2 varian pilihan</li><li>Kotak hampers dan pita</li><li>Kartu ucapan Lebaran</li></ul>
+        <a class="btn" data-wa="Halo, saya mau tanya Paket Silaturahmi (hampers Lebaran).">Tanya via WhatsApp</a>
+      </article>
+      <article class="plan hot">
+        <div class="fan" aria-hidden="true">
+          <div class="pouch suwir" style="transform:translateX(-62px) rotate(-12deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Suwir Sapi</small></div><div class="win"><img src="img/suwir.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch telur" style="transform:translateX(62px) rotate(12deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Telur Krispi</small></div><div class="win"><img src="img/telur.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch daging" style="transform:translateY(-8px)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="" loading="lazy"></div></div>
+        </div>
+        <h3>Paket Keluarga</h3>
+        <p class="isi">Paling banyak dipilih untuk orang tua dan saudara.</p>
+        <ul><li>3 varian favorit</li><li>Kotak hampers premium</li><li>Kartu ucapan dengan nama pengirim</li></ul>
+        <a class="btn" data-wa="Halo, saya mau tanya Paket Keluarga (hampers Lebaran).">Tanya via WhatsApp</a>
+      </article>
+      <article class="plan">
+        <div class="fan" aria-hidden="true">
+          <div class="pouch tumbuk" style="transform:translateX(-84px) rotate(-16deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Tumbuk</small></div><div class="win"><img src="img/tumbuk.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch suwir" style="transform:translateX(84px) rotate(16deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Suwir Sapi</small></div><div class="win"><img src="img/suwir.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch telur" style="transform:translateX(-42px) rotate(-7deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Telur Krispi</small></div><div class="win"><img src="img/telur.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch paru" style="transform:translateX(42px) rotate(7deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Paru Sapi</small></div><div class="win"><img src="img/paru.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch daging" style="transform:translateY(-10px)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="" loading="lazy"></div></div>
+        </div>
+        <h3>Paket Juragan</h3>
+        <p class="isi">Lengkap lima varian, cocok untuk relasi dan kantor.</p>
+        <ul><li>Semua 5 varian</li><li>Kotak hampers eksklusif</li><li>Bisa pesan banyak untuk kantor</li></ul>
+        <a class="btn" data-wa="Halo, saya mau tanya Paket Juragan (hampers Lebaran).">Tanya via WhatsApp</a>
+      </article>
+    </div>
+    <div class="po">
+      <span>Pre-order dibuka selama Ramadhan</span>
+      <span>Bisa dikirim langsung ke alamat penerima</span>
+      <span>Pesanan kantor dan jumlah banyak dilayani</span>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="cerita">
+  <div class="wrap">
+    <div class="ph"><img src="img/tumbuk.jpg" alt="Rendang Unique di atas piring" loading="lazy"></div>
+    <div>
+      <div class="eyebrow">Cerita kami</div>
+      <h2>Rasa rumah, dalam kemasan yang siap dibawa ke mana saja.</h2>
+      <p>Rendang Unique hadir sejak 2020 dengan satu tujuan sederhana: rendang Minang yang praktis disimpan, tapi rasanya tetap seperti masakan rumah.</p>
+      <p>Untuk stok di rumah, bekal kerja, teman di perjalanan, sampai hampers Lebaran untuk orang tersayang.</p>
+      <div class="stats">
+        <div><b>2020</b><small>Mulai memasak</small></div>
+        <div><b>5</b><small>Varian rendang</small></div>
+        <div><b>26 rb+</b><small>Pengikut Instagram</small></div>
+      </div>
+      <a class="btn light" data-wa="Halo Rendang Unique, saya mau tanya-tanya dulu.">Ngobrol via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <div class="head" style="color:var(--ink)">
+      <h2>Pesan dalam<br>tiga langkah.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><b>01</b><h3>Pilih varian atau paket</h3><p>Lihat varian di atas, atau pilih paket hampers sesuai kebutuhan.</p></div>
+      <div class="step"><b>02</b><h3>Chat via WhatsApp</h3><p>Tekan tombol pesan. Pesanmu otomatis terisi, tinggal tambahkan jumlah dan alamat.</p></div>
+      <div class="step"><b>03</b><h3>Kami kemas dan kirim</h3><p>Pesanan dikemas rapi dan dikirim ke alamatmu atau langsung ke penerima hampers.</p></div>
+    </div>
+    <div class="cta">
+      <h3>Lebaran makin dekat. Amankan hampers rendangmu sekarang.</h3>
+      <div class="row">
+        <a class="btn light" data-wa="Halo Rendang Unique, saya mau pesan hampers Lebaran.">Pesan via WhatsApp</a>
+        <a class="btn ghost" href="https://shopee.co.id/rendangunique" target="_blank" rel="noopener">Beli di Shopee</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#" class="logo" style="margin-bottom:22px"><img src="img/sapi-putih.png" alt=""><span class="wm"><small>rendang</small><b>UNIQUÉ</b></span></a>
+        <p class="lead">Rendang Minang, praktis disimpan, nikmat dibagikan.</p>
+      </div>
+      <div>
+        <h4>Varian</h4>
+        <ul><li><a href="#varian">Daging Sapi</a></li><li><a href="#varian">Paru Sapi</a></li><li><a href="#varian">Suwir Sapi</a></li><li><a href="#varian">Telur Krispi</a></li><li><a href="#varian">Tumbuk Sapi</a></li></ul>
+      </div>
+      <div>
+        <h4>Pesan</h4>
+        <ul><li><a data-wa="Halo Rendang Unique, saya mau pesan.">WhatsApp 0812-7523-2159</a></li><li><a href="https://shopee.co.id/rendangunique" target="_blank" rel="noopener">Shopee</a></li><li><a href="https://instagram.com/rendangunique" target="_blank" rel="noopener">Instagram @rendangunique</a></li></ul>
+      </div>
+    </div>
+    <div class="giant" aria-hidden="true">UNIQUÉ</div>
+  </div>
+  <div class="legal"><div class="wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span>© 2026 Rendang Unique</span><span>Contoh halaman oleh <a href="https://creaplinverse.github.io" style="color:#fff">Creaplin</a></span></div></div>
+</footer>
+
+<a class="btn float-wa" data-wa="Halo Rendang Unique, saya mau pesan.">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+  Pesan sekarang
+</a>
+
+<script>
+  var WA = "6281275232159";
+  document.querySelectorAll("[data-wa]").forEach(function (a) {
+    a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(a.getAttribute("data-wa"));
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+</script>
+</body>
+</html>

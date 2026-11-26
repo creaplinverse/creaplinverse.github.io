@@ -186,7 +186,59 @@ footer{background:var(--ink);color:#fff;padding:90px 0 0;overflow:hidden}
   .plan{padding:24px}
   .stats b{font-size:32px}
 }
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ---------- animasi ---------- */
+/* pembuka: judul naik, kemasan jatuh masuk */
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .ln:nth-child(2) span{animation-delay:.15s}
+.hero-side>*{opacity:0;transform:translateY(24px);animation:fadeup .8s ease forwards}
+.hero-side>*:nth-child(1){animation-delay:.45s}.hero-side>*:nth-child(2){animation-delay:.6s}.hero-side>*:nth-child(3){animation-delay:.75s}
+@keyframes rise{to{transform:none}}
+@keyframes fadeup{to{opacity:1;transform:none}}
+.hero-stage .pw{position:absolute;inset:0;will-change:transform}
+.hero-stage .drop{opacity:0;animation:drop 1.1s cubic-bezier(.2,1.3,.4,1) forwards}
+.hero-stage .p1.drop{animation-delay:.2s}.hero-stage .p2.drop{animation-delay:.42s}
+@keyframes drop{from{opacity:0;translate:0 -140px;scale:.85}to{opacity:1;translate:0 0;scale:1}}
+.moon{animation:glow 4s ease-in-out infinite}
+@keyframes glow{50%{filter:drop-shadow(0 0 18px rgba(232,184,74,.75))}}
+.spark{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff;opacity:0;animation:twinkle 3.2s ease-in-out infinite}
+@keyframes twinkle{50%{opacity:.9;transform:scale(1.6)}}
+
+/* pita nama varian berjalan */
+.band{background:var(--gold);color:var(--ink);overflow:hidden;white-space:nowrap;padding:18px 0;font-weight:800;font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+.band div{display:inline-block;animation:slide 26s linear infinite}
+.band span{margin:0 22px}
+
+/* muncul saat digulir */
+.reveal{opacity:0;transform:translateY(46px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.grid .card:nth-child(2n).reveal{transition-delay:.12s}
+.card .stage{transform:translateY(160px) rotate(6deg)}
+.card.in .stage{transform:translateY(46px);transition-delay:.25s;transition-duration:1s}
+.card.in:hover .stage{transform:translateY(20px) rotate(-2deg);transition-delay:0s}
+.card.wide.in .stage{transform:none}
+.card.wide .stage{transform:translateX(120px) rotate(10deg)}
+@media (max-width:900px){.card.wide .stage{transform:translateY(160px) rotate(6deg)}.card.wide.in .stage{transform:translateY(46px)}}
+.card .stage .pouch{animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{translate:0 -10px}}
+
+/* kipas kemasan hampers terbuka */
+.fan .pouch{opacity:0;transform:translateY(40px) scale(.85);transition:transform .9s cubic-bezier(.2,1.2,.4,1),opacity .5s ease}
+.plan.in .fan .pouch{opacity:1;transform:var(--t)}
+.fan .pouch:nth-child(2){transition-delay:.08s}.fan .pouch:nth-child(3){transition-delay:.16s}.fan .pouch:nth-child(4){transition-delay:.24s}.fan .pouch:nth-child(5){transition-delay:.32s}
+.plans .plan:nth-child(2){transition-delay:.12s}.plans .plan:nth-child(3){transition-delay:.24s}
+
+/* foto cerita membesar pelan */
+.story .ph img{transform:scale(1.15);transition:transform 2.4s cubic-bezier(.2,.8,.2,1)}
+.story .ph.in img{transform:scale(1)}
+
+/* tombol WA berdenyut */
+.float-wa{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,.3),0 0 0 0 rgba(31,157,85,.55)}50%{box-shadow:0 10px 30px rgba(0,0,0,.3),0 0 0 16px rgba(31,157,85,0)}}
+.cta{background-size:200% 100%;animation:sheen 8s ease-in-out infinite;background-image:linear-gradient(120deg,#a3231f,#621010,#a3231f)}
+@keyframes sheen{50%{background-position:100% 0}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.fan .pouch,.hero-stage .drop,.hero-side>*{opacity:1!important;transform:none!important}.hero h1 .ln span{transform:none!important}}
 </style>
 </head>
 <body>
@@ -208,26 +260,27 @@ footer{background:var(--ink);color:#fff;padding:90px 0 0;overflow:hidden}
   </nav>
 
   <div class="moon" aria-hidden="true"></div>
+  <i class="spark" style="left:18%;top:22%"></i><i class="spark" style="left:72%;top:12%;animation-delay:1s"></i><i class="spark" style="left:86%;top:40%;animation-delay:2s"></i><i class="spark" style="left:8%;top:48%;animation-delay:1.5s"></i>
   <div class="bigword" aria-hidden="true">DIMASAK PERLAHAN · DIMASAK PERLAHAN · DIMASAK PERLAHAN · DIMASAK PERLAHAN ·&nbsp;</div>
 
   <div class="hero-stage" aria-hidden="true">
-    <div class="pouch daging p1">
+    <div class="pw" data-speed="0.18"><div class="pouch daging p1 drop">
       <img class="cow" src="img/sapi-putih.png" alt="">
       <div class="br"><small>rendang</small><b>UNIQUÉ</b></div>
       <div class="nm"><i>Rendang</i><small>Daging Sapi</small></div>
       <div class="win"><img src="img/daging.jpg" alt=""></div>
-    </div>
-    <div class="pouch paru p2">
+    </div></div>
+    <div class="pw" data-speed="0.32"><div class="pouch paru p2 drop">
       <img class="cow" src="img/sapi-putih.png" alt="">
       <div class="br"><small>rendang</small><b>UNIQUÉ</b></div>
       <div class="nm"><i>Rendang</i><small>Paru Sapi</small></div>
       <div class="win"><img src="img/paru.jpg" alt=""></div>
-    </div>
+    </div></div>
   </div>
 
   <div class="hero-copy">
     <div class="wrap">
-      <h1>Rendang Minang.<br>Hampers paling dinanti.</h1>
+      <h1><span class="ln"><span>Rendang Minang.</span></span><span class="ln"><span>Hampers paling dinanti.</span></span></h1>
       <div class="hero-side">
         <span class="tag">Pre-order Lebaran 1448 H</span>
         <p>Rendang dalam kemasan praktis, siap jadi stok di rumah, bekal mudik, atau hampers untuk keluarga dan rekan kerja.</p>
@@ -237,41 +290,43 @@ footer{background:var(--ink);color:#fff;padding:90px 0 0;overflow:hidden}
   </div>
 </header>
 
+<div class="band" aria-hidden="true"><div><span>Rendang Daging Sapi</span>✦<span>Rendang Paru Sapi</span>✦<span>Rendang Suwir Sapi</span>✦<span>Rendang Telur Krispi</span>✦<span>Rendang Tumbuk Sapi</span>✦<span>Hampers Lebaran 1448 H</span>✦<span>Rendang Daging Sapi</span>✦<span>Rendang Paru Sapi</span>✦<span>Rendang Suwir Sapi</span>✦<span>Rendang Telur Krispi</span>✦<span>Rendang Tumbuk Sapi</span>✦<span>Hampers Lebaran 1448 H</span>✦</div></div>
+
 <main>
 <section class="sec-dark" id="varian">
   <div class="wrap">
-    <div class="head">
+    <div class="head reveal">
       <h2>Lima varian,<br>satu rasa rumah.</h2>
       <p>Pilih satu untuk stok sendiri, atau campur beberapa varian untuk isi hampers. Semua bisa dipesan langsung lewat WhatsApp.</p>
     </div>
     <div class="grid">
-      <article class="card bg-daging">
+      <article class="reveal card bg-daging">
         <span class="badge">Terlaris</span>
         <h3>Rendang Daging Sapi</h3>
         <p>Potongan daging sapi berbumbu pekat khas Minang. Pilihan klasik yang selalu habis duluan di meja Lebaran.</p>
         <a class="btn" data-wa="Halo, saya mau pesan Rendang Daging Sapi.">Pesan via WhatsApp</a>
         <div class="stage"><div class="pouch daging"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="Rendang daging sapi" loading="lazy"></div></div></div>
       </article>
-      <article class="card bg-paru">
+      <article class="reveal card bg-paru">
         <span class="badge">Terlaris</span>
         <h3>Rendang Paru Sapi</h3>
         <p>Paru sapi renyah berbalut bumbu rendang. Gurih, kering, dan cocok jadi lauk maupun camilan.</p>
         <a class="btn" data-wa="Halo, saya mau pesan Rendang Paru Sapi.">Pesan via WhatsApp</a>
         <div class="stage"><div class="pouch paru"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Paru Sapi</small></div><div class="win"><img src="img/paru.jpg" alt="Rendang paru sapi" loading="lazy"></div></div></div>
       </article>
-      <article class="card bg-suwir">
+      <article class="reveal card bg-suwir">
         <h3>Rendang Suwir Sapi</h3>
         <p>Daging sapi disuwir halus dengan bumbu yang meresap. Pas untuk nasi hangat, roti, atau isian lontong.</p>
         <a class="btn" data-wa="Halo, saya mau pesan Rendang Suwir Sapi.">Pesan via WhatsApp</a>
         <div class="stage"><div class="pouch suwir"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Suwir Sapi</small></div><div class="win"><img src="img/suwir.jpg" alt="Rendang suwir sapi" loading="lazy"></div></div></div>
       </article>
-      <article class="card bg-telur">
+      <article class="reveal card bg-telur">
         <h3>Rendang Telur Krispi</h3>
         <p>Renyah, gurih, dan bikin nagih. Teman ngobrol yang pas waktu tamu datang bersilaturahmi.</p>
         <a class="btn" data-wa="Halo, saya mau pesan Rendang Telur Krispi.">Pesan via WhatsApp</a>
         <div class="stage"><div class="pouch telur"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Telur Krispi</small></div><div class="win"><img src="img/telur.jpg" alt="Rendang telur krispi" loading="lazy"></div></div></div>
       </article>
-      <article class="card wide bg-tumbuk">
+      <article class="reveal card wide bg-tumbuk">
         <div class="txt">
           <h3>Rendang Tumbuk Sapi</h3>
           <p>Daging sapi ditumbuk lalu dimasak dengan bumbu rendang hingga lembut. Favorit untuk anak-anak dan orang tua.</p>
@@ -285,7 +340,7 @@ footer{background:var(--ink);color:#fff;padding:90px 0 0;overflow:hidden}
 
 <section class="hampers" id="hampers">
   <div class="wrap">
-    <div class="head">
+    <div class="head reveal">
       <div>
         <div class="eyebrow">Hampers Lebaran 1448 H</div>
         <h2>Kirim rendang,<br>kirim rasa rindu.</h2>
@@ -293,34 +348,34 @@ footer{background:var(--ink);color:#fff;padding:90px 0 0;overflow:hidden}
       <p>Untuk keluarga di rantau, rekan kerja, atau pelanggan setia. Pilih paketnya, kami kemas rapi lengkap dengan kartu ucapan.</p>
     </div>
     <div class="plans">
-      <article class="plan">
+      <article class="plan reveal">
         <div class="fan" aria-hidden="true">
-          <div class="pouch daging" style="transform:translateX(-38px) rotate(-8deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="" loading="lazy"></div></div>
-          <div class="pouch paru" style="transform:translateX(38px) rotate(8deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Paru Sapi</small></div><div class="win"><img src="img/paru.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch daging" style="--t:translateX(-38px) rotate(-8deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch paru" style="--t:translateX(38px) rotate(8deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Paru Sapi</small></div><div class="win"><img src="img/paru.jpg" alt="" loading="lazy"></div></div>
         </div>
         <h3>Paket Silaturahmi</h3>
         <p class="isi">Hampers mungil untuk tetangga dan teman dekat.</p>
         <ul><li>2 varian pilihan</li><li>Kotak hampers dan pita</li><li>Kartu ucapan Lebaran</li></ul>
         <a class="btn" data-wa="Halo, saya mau tanya Paket Silaturahmi (hampers Lebaran).">Tanya via WhatsApp</a>
       </article>
-      <article class="plan hot">
+      <article class="plan hot reveal">
         <div class="fan" aria-hidden="true">
-          <div class="pouch suwir" style="transform:translateX(-62px) rotate(-12deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Suwir Sapi</small></div><div class="win"><img src="img/suwir.jpg" alt="" loading="lazy"></div></div>
-          <div class="pouch telur" style="transform:translateX(62px) rotate(12deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Telur Krispi</small></div><div class="win"><img src="img/telur.jpg" alt="" loading="lazy"></div></div>
-          <div class="pouch daging" style="transform:translateY(-8px)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch suwir" style="--t:translateX(-62px) rotate(-12deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Suwir Sapi</small></div><div class="win"><img src="img/suwir.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch telur" style="--t:translateX(62px) rotate(12deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Telur Krispi</small></div><div class="win"><img src="img/telur.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch daging" style="--t:translateY(-8px)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="" loading="lazy"></div></div>
         </div>
         <h3>Paket Keluarga</h3>
         <p class="isi">Paling banyak dipilih untuk orang tua dan saudara.</p>
         <ul><li>3 varian favorit</li><li>Kotak hampers premium</li><li>Kartu ucapan dengan nama pengirim</li></ul>
         <a class="btn" data-wa="Halo, saya mau tanya Paket Keluarga (hampers Lebaran).">Tanya via WhatsApp</a>
       </article>
-      <article class="plan">
+      <article class="plan reveal">
         <div class="fan" aria-hidden="true">
-          <div class="pouch tumbuk" style="transform:translateX(-84px) rotate(-16deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Tumbuk</small></div><div class="win"><img src="img/tumbuk.jpg" alt="" loading="lazy"></div></div>
-          <div class="pouch suwir" style="transform:translateX(84px) rotate(16deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Suwir Sapi</small></div><div class="win"><img src="img/suwir.jpg" alt="" loading="lazy"></div></div>
-          <div class="pouch telur" style="transform:translateX(-42px) rotate(-7deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Telur Krispi</small></div><div class="win"><img src="img/telur.jpg" alt="" loading="lazy"></div></div>
-          <div class="pouch paru" style="transform:translateX(42px) rotate(7deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Paru Sapi</small></div><div class="win"><img src="img/paru.jpg" alt="" loading="lazy"></div></div>
-          <div class="pouch daging" style="transform:translateY(-10px)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch tumbuk" style="--t:translateX(-84px) rotate(-16deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Tumbuk</small></div><div class="win"><img src="img/tumbuk.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch suwir" style="--t:translateX(84px) rotate(16deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Suwir Sapi</small></div><div class="win"><img src="img/suwir.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch telur" style="--t:translateX(-42px) rotate(-7deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Telur Krispi</small></div><div class="win"><img src="img/telur.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch paru" style="--t:translateX(42px) rotate(7deg)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Paru Sapi</small></div><div class="win"><img src="img/paru.jpg" alt="" loading="lazy"></div></div>
+          <div class="pouch daging" style="--t:translateY(-10px)"><img class="cow" src="img/sapi-putih.png" alt=""><div class="br"><small>rendang</small><b>UNIQUÉ</b></div><div class="nm"><i>Rendang</i><small>Daging Sapi</small></div><div class="win"><img src="img/daging.jpg" alt="" loading="lazy"></div></div>
         </div>
         <h3>Paket Juragan</h3>
         <p class="isi">Lengkap lima varian, cocok untuk relasi dan kantor.</p>
@@ -328,7 +383,7 @@ footer{background:var(--ink);color:#fff;padding:90px 0 0;overflow:hidden}
         <a class="btn" data-wa="Halo, saya mau tanya Paket Juragan (hampers Lebaran).">Tanya via WhatsApp</a>
       </article>
     </div>
-    <div class="po">
+    <div class="po reveal">
       <span>Pre-order dibuka selama Ramadhan</span>
       <span>Bisa dikirim langsung ke alamat penerima</span>
       <span>Pesanan kantor dan jumlah banyak dilayani</span>
@@ -338,16 +393,16 @@ footer{background:var(--ink);color:#fff;padding:90px 0 0;overflow:hidden}
 
 <section class="story" id="cerita">
   <div class="wrap">
-    <div class="ph"><img src="img/tumbuk.jpg" alt="Rendang Unique di atas piring" loading="lazy"></div>
+    <div class="ph reveal"><img src="img/tumbuk.jpg" alt="Rendang Unique di atas piring" loading="lazy"></div>
     <div>
       <div class="eyebrow">Cerita kami</div>
       <h2>Rasa rumah, dalam kemasan yang siap dibawa ke mana saja.</h2>
       <p>Rendang Unique hadir sejak 2020 dengan satu tujuan sederhana: rendang Minang yang praktis disimpan, tapi rasanya tetap seperti masakan rumah.</p>
       <p>Untuk stok di rumah, bekal kerja, teman di perjalanan, sampai hampers Lebaran untuk orang tersayang.</p>
       <div class="stats">
-        <div><b>2020</b><small>Mulai memasak</small></div>
-        <div><b>5</b><small>Varian rendang</small></div>
-        <div><b>26 rb+</b><small>Pengikut Instagram</small></div>
+        <div><b data-count="2020">2020</b><small>Mulai memasak</small></div>
+        <div><b data-count="5">5</b><small>Varian rendang</small></div>
+        <div><b data-count="26" data-suffix=" rb+">26 rb+</b><small>Pengikut Instagram</small></div>
       </div>
       <a class="btn light" data-wa="Halo Rendang Unique, saya mau tanya-tanya dulu.">Ngobrol via WhatsApp</a>
     </div>
@@ -360,11 +415,11 @@ footer{background:var(--ink);color:#fff;padding:90px 0 0;overflow:hidden}
       <h2>Pesan dalam<br>tiga langkah.</h2>
     </div>
     <div class="steps">
-      <div class="step"><b>01</b><h3>Pilih varian atau paket</h3><p>Lihat varian di atas, atau pilih paket hampers sesuai kebutuhan.</p></div>
-      <div class="step"><b>02</b><h3>Chat via WhatsApp</h3><p>Tekan tombol pesan. Pesanmu otomatis terisi, tinggal tambahkan jumlah dan alamat.</p></div>
-      <div class="step"><b>03</b><h3>Kami kemas dan kirim</h3><p>Pesanan dikemas rapi dan dikirim ke alamatmu atau langsung ke penerima hampers.</p></div>
+      <div class="step reveal"><b>01</b><h3>Pilih varian atau paket</h3><p>Lihat varian di atas, atau pilih paket hampers sesuai kebutuhan.</p></div>
+      <div class="step reveal"><b>02</b><h3>Chat via WhatsApp</h3><p>Tekan tombol pesan. Pesanmu otomatis terisi, tinggal tambahkan jumlah dan alamat.</p></div>
+      <div class="step reveal"><b>03</b><h3>Kami kemas dan kirim</h3><p>Pesanan dikemas rapi dan dikirim ke alamatmu atau langsung ke penerima hampers.</p></div>
     </div>
-    <div class="cta">
+    <div class="cta reveal">
       <h3>Lebaran makin dekat. Amankan hampers rendangmu sekarang.</h3>
       <div class="row">
         <a class="btn light" data-wa="Halo Rendang Unique, saya mau pesan hampers Lebaran.">Pesan via WhatsApp</a>
@@ -408,6 +463,30 @@ footer{background:var(--ink);color:#fff;padding:90px 0 0;overflow:hidden}
     a.target = "_blank";
     a.rel = "noopener";
   });
+</script>
+<script>
+  // muncul saat digulir
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("in");
+      e.target.querySelectorAll("[data-count]").forEach(function (b) {
+        var end = +b.getAttribute("data-count"), suf = b.getAttribute("data-suffix") || "", t0 = null, from = end > 100 ? end - 30 : 0;
+        function step(t) { if (!t0) t0 = t; var p = Math.min((t - t0) / 1200, 1); b.textContent = Math.round(from + (end - from) * (1 - Math.pow(1 - p, 3))) + suf; if (p < 1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      });
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.18 });
+  document.querySelectorAll(".reveal, .story .wrap > div:last-child").forEach(function (el) { io.observe(el); });
+
+  // kemasan di pembuka bergerak saat digulir
+  var pws = document.querySelectorAll(".pw");
+  window.addEventListener("scroll", function () {
+    var y = window.scrollY;
+    if (y > window.innerHeight) return;
+    pws.forEach(function (p) { p.style.transform = "translateY(" + (-y * +p.getAttribute("data-speed")) + "px)"; });
+  }, { passive: true });
 </script>
 </body>
 </html>
